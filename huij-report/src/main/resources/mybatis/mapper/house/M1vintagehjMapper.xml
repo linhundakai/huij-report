@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huij.report.house.mapper.M1vintagehjMapper">
+	<resultMap id="BaseResultMap" type="com.huij.report.house.entity.M1vintagehj">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="type_id" jdbcType="INTEGER" property="type_id" />
+		<result column="type_name" jdbcType="VARCHAR" property="type_name" />
+		<result column="month" jdbcType="VARCHAR" property="month" />
+		<result column="total_principal" jdbcType="DECIMAL" property="total_principal" />
+		<result column="destmonth" jdbcType="VARCHAR" property="destmonth" />
+		<result column="curr_principal" jdbcType="DECIMAL" property="curr_principal" />
+		<result column="proportion" jdbcType="DOUBLE" property="proportion" />
+		<result column="color1" jdbcType="DOUBLE" property="color1" />
+		<result column="color2" jdbcType="DOUBLE" property="color2" />
+		<result column="color3" jdbcType="DOUBLE" property="color3" />
+		<result column="color4" jdbcType="DOUBLE" property="color4" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, type_id, type_name, month, total_principal, destmonth,
+		curr_principal, proportion,
+		color1, color2, color3, color4
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from m1vintagehj
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from m1vintagehj
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.huij.report.house.entity.M1vintagehj">
+		insert into m1vintagehj (id, type_id, type_name,
+		month, total_principal, destmonth,
+		curr_principal, proportion, color1,
+		color2, color3, color4
+		)
+		values (#{id,jdbcType=INTEGER}, #{type_id,jdbcType=INTEGER},
+		#{type_name,jdbcType=VARCHAR},
+		#{month,jdbcType=VARCHAR}, #{total_principal,jdbcType=DECIMAL}, #{destmonth,jdbcType=VARCHAR},
+		#{curr_principal,jdbcType=DECIMAL}, #{proportion,jdbcType=DOUBLE},
+		#{color1,jdbcType=DOUBLE},
+		#{color2,jdbcType=DOUBLE}, #{color3,jdbcType=DOUBLE}, #{color4,jdbcType=DOUBLE}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.huij.report.house.entity.M1vintagehj">
+		insert into m1vintagehj
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="type_id != null">
+				type_id,
+			</if>
+			<if test="type_name != null">
+				type_name,
+			</if>
+			<if test="month != null">
+				month,
+			</if>
+			<if test="total_principal != null">
+				total_principal,
+			</if>
+			<if test="destmonth != null">
+				destmonth,
+			</if>
+			<if test="curr_principal != null">
+				curr_principal,
+			</if>
+			<if test="proportion != null">
+				proportion,
+			</if>
+			<if test="color1 != null">
+				color1,
+			</if>
+			<if test="color2 != null">
+				color2,
+			</if>
+			<if test="color3 != null">
+				color3,
+			</if>
+			<if test="color4 != null">
+				color4,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="type_id != null">
+				#{type_id,jdbcType=INTEGER},
+			</if>
+			<if test="type_name != null">
+				#{type_name,jdbcType=VARCHAR},
+			</if>
+			<if test="month != null">
+				#{month,jdbcType=VARCHAR},
+			</if>
+			<if test="total_principal != null">
+				#{total_principal,jdbcType=DECIMAL},
+			</if>
+			<if test="destmonth != null">
+				#{destmonth,jdbcType=VARCHAR},
+			</if>
+			<if test="curr_principal != null">
+				#{curr_principal,jdbcType=DECIMAL},
+			</if>
+			<if test="proportion != null">
+				#{proportion,jdbcType=DOUBLE},
+			</if>
+			<if test="color1 != null">
+				#{color1,jdbcType=DOUBLE},
+			</if>
+			<if test="color2 != null">
+				#{color2,jdbcType=DOUBLE},
+			</if>
+			<if test="color3 != null">
+				#{color3,jdbcType=DOUBLE},
+			</if>
+			<if test="color4 != null">
+				#{color4,jdbcType=DOUBLE},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.huij.report.house.entity.M1vintagehj">
+		update m1vintagehj
+		<set>
+			<if test="type_id != null">
+				type_id = #{type_id,jdbcType=INTEGER},
+			</if>
+			<if test="type_name != null">
+				type_name = #{type_name,jdbcType=VARCHAR},
+			</if>
+			<if test="month != null">
+				month = #{month,jdbcType=VARCHAR},
+			</if>
+			<if test="total_principal != null">
+				total_principal = #{total_principal,jdbcType=DECIMAL},
+			</if>
+			<if test="destmonth != null">
+				destmonth = #{destmonth,jdbcType=VARCHAR},
+			</if>
+			<if test="curr_principal != null">
+				curr_principal = #{curr_principal,jdbcType=DECIMAL},
+			</if>
+			<if test="proportion != null">
+				proportion = #{proportion,jdbcType=DOUBLE},
+			</if>
+			<if test="color1 != null">
+				color1 = #{color1,jdbcType=DOUBLE},
+			</if>
+			<if test="color2 != null">
+				color2 = #{color2,jdbcType=DOUBLE},
+			</if>
+			<if test="color3 != null">
+				color3 = #{color3,jdbcType=DOUBLE},
+			</if>
+			<if test="color4 != null">
+				color4 = #{color4,jdbcType=DOUBLE},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.huij.report.house.entity.M1vintagehj">
+		update m1vintagehj
+		set type_id = #{type_id,jdbcType=INTEGER},
+		type_name = #{type_name,jdbcType=VARCHAR},
+		month = #{month,jdbcType=VARCHAR},
+		total_principal = #{total_principal,jdbcType=DECIMAL},
+		destmonth = #{destmonth,jdbcType=VARCHAR},
+		curr_principal = #{curr_principal,jdbcType=DECIMAL},
+		proportion = #{proportion,jdbcType=DOUBLE},
+		color1 = #{color1,jdbcType=DOUBLE},
+		color2 = #{color2,jdbcType=DOUBLE},
+		color3 = #{color3,jdbcType=DOUBLE},
+		color4 = #{color4,jdbcType=DOUBLE}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectByType" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from m1vintagehj
+		where
+		type_id in
+		<foreach collection="type_ids" item="item" open="(" separator=","
+			close=")">
+			#{item}
+		</foreach>
+		and destmonth = #{destmonth,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updateTotalPrincipal" parameterType="com.huij.report.house.entity.M1vintagehj">
+		update m1vintagehj
+		set total_principal = #{total_principal,jdbcType=DECIMAL}
+		where month = #{month,jdbcType=VARCHAR} and type_id =
+		#{type_id,jdbcType=INTEGER}
+	</update>
+	
+	<select id="selectAll" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from m1vintagehj order by type_id,month,destmonth asc
+	</select>
+</mapper>

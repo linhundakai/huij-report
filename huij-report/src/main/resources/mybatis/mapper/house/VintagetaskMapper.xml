@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huij.report.house.mapper.VintagetaskMapper">
+  <resultMap id="BaseResultMap" type="com.huij.report.house.entity.Vintagetask">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="taskdate" jdbcType="VARCHAR" property="taskdate" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, taskdate, status
+  </sql>
+  <insert id="insert" parameterType="com.huij.report.house.entity.Vintagetask">
+    insert into vintagetask (id, taskdate, status
+      )
+    values (#{id,jdbcType=INTEGER}, #{taskdate,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huij.report.house.entity.Vintagetask">
+    insert into vintagetask
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="taskdate != null">
+        taskdate,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="taskdate != null">
+        #{taskdate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.huij.report.house.entity.Vintagetask">
+    update vintagetask
+    <set>
+      <if test="taskdate != null">
+        taskdate = #{taskdate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR}
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+   <select id="selectByTaskdate" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from vintagetask
+    where taskdate = #{taskdate,jdbcType=VARCHAR}
+  </select>
+</mapper>
