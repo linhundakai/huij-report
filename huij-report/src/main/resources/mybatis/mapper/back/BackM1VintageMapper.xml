@@ -163,4 +163,8 @@
 		GROUP BY type_name,DATE_FORMAT(t2.creation_date,'%Y-%m')
 		ORDER BY type_name,DATE_FORMAT(t2.creation_date,'%Y-%m');
 	</select>
+	
+	<select id="selecttest" resultType="java.lang.Integer">
+		select 1
+	</select>
 </mapper>

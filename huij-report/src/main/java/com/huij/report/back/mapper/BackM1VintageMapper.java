@@ -14,4 +14,6 @@ public interface BackM1VintageMapper {
     List<BackM1Vintage> selectDiscountM1Vintage();
     
     List<BackM1Vintage> selectSubCompanyM1Vintage();
+    
+    Integer selecttest();
 }

@@ -55,7 +55,8 @@ public class TaskConfig {
 	@Transactional(value = "houseTransactionManager")
 	@Scheduled(cron = "${cron_schedule}") // 每小时秒执行一次
 	public void allScheduler() {
-
+		// mysql 8小时会自动关闭空闲连接，这里做一个心跳
+		backM1VintageMapper.selecttest();
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String today = format.format(cal.getTime());
@@ -151,6 +152,9 @@ public class TaskConfig {
 				m1vintagehj.setCurr_principal(backM1Vintage.getCurr_principal());
 				m1vintagehj.setProportion(backM1Vintage.getProportion());
 				m1vintagehjMapper.insertSelective(m1vintagehj);
+				// 更新所有total_principal
+				m1vintagehjMapper.updateTotalPrincipal(backM1Vintage.getMonth(), backM1Vintage.getType_id(),
+						backM1Vintage.getTotal_principal());
 			} else {
 				logger.info(
 						backM1Vintage.getType_name() + "更新：" + backM1Vintage.getMonth() + ",destmonth:" + curr_month);
@@ -158,6 +162,7 @@ public class TaskConfig {
 				if (compareMonth(backM1Vintage.getMonth(), curr_month)) {
 					logger.info("最后两月更新total_principal:" + i);
 					// 更新total_principal和accum_principal
+					// 这里将total_principal放入实体中，防止后续更新的时候又将数据更新回去
 					m1vintagehj.setTotal_principal(backM1Vintage.getTotal_principal());
 					m1vintagehjMapper.updateTotalPrincipal(backM1Vintage.getMonth(), backM1Vintage.getType_id(),
 							backM1Vintage.getTotal_principal());
@@ -218,14 +223,17 @@ public class TaskConfig {
 				m1vintagehj.setCurr_principal(backM1Vintage.getCurr_principal());
 				m1vintagehj.setProportion(backM1Vintage.getProportion());
 				m1vintagehjMapper.insertSelective(m1vintagehj);
+				// 更新所有total_principal
+				m1vintagehjMapper.updateTotalPrincipal(backM1Vintage.getMonth(), backM1Vintage.getType_id(),
+						backM1Vintage.getTotal_principal());
 			} else {
 				logger.info(
 						backM1Vintage.getType_name() + "更新：" + backM1Vintage.getMonth() + ",destmonth:" + curr_month);
-
 				// 当前月份为最后一个或上一个月则更新total_principal字段
 				if (compareMonth(backM1Vintage.getMonth(), curr_month)) {
 					logger.info("最后两月更新total_principal:" + i);
 					// 更新total_principal和accum_principal
+					// 这里将total_principal放入实体中，防止后续更新的时候又将数据更新回去
 					m1vintagehj.setTotal_principal(backM1Vintage.getTotal_principal());
 					m1vintagehjMapper.updateTotalPrincipal(backM1Vintage.getMonth(), backM1Vintage.getType_id(),
 							backM1Vintage.getTotal_principal());
