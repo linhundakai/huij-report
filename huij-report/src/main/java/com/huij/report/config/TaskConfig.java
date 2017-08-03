@@ -298,22 +298,27 @@ public class TaskConfig {
 					logger.info(m1vintagehj.getType_name() + "_" + m1vintagehj.getMonth() + "_"
 							+ m1vintagehj.getDestmonth() + "_color1");
 					m1vintagehj.setColor1(m1vintagehj.getProportion());
+					m1vintagehjMapper.updateByPrimaryKeySelective(m1vintagehj);
+					continue;
 				} else if (count == 2 && !m1vintagehj.getProportion().equals(m1vintagehj.getColor2())) {
 					logger.info(m1vintagehj.getType_name() + "_" + m1vintagehj.getMonth() + "_"
 							+ m1vintagehj.getDestmonth() + "_color2");
 					m1vintagehj.setColor2(m1vintagehj.getProportion());
+					m1vintagehjMapper.updateByPrimaryKeySelective(m1vintagehj);
+					continue;
 				} else if (count == 3 && !m1vintagehj.getProportion().equals(m1vintagehj.getColor3())) {
 					logger.info(m1vintagehj.getType_name() + "_" + m1vintagehj.getMonth() + "_"
 							+ m1vintagehj.getDestmonth() + "_color3");
 					m1vintagehj.setColor3(m1vintagehj.getProportion());
+					m1vintagehjMapper.updateByPrimaryKeySelective(m1vintagehj);
+					continue;
 				} else if (count == 4 && !m1vintagehj.getProportion().equals(m1vintagehj.getColor4())) {
 					logger.info(m1vintagehj.getType_name() + "_" + m1vintagehj.getMonth() + "_"
 							+ m1vintagehj.getDestmonth() + "_color4");
 					m1vintagehj.setColor4(m1vintagehj.getProportion());
-				} else {
-					break;
+					m1vintagehjMapper.updateByPrimaryKeySelective(m1vintagehj);
+					continue;
 				}
-				m1vintagehjMapper.updateByPrimaryKeySelective(m1vintagehj);
 			}
 		}
 		logger.info("结束更新颜色方案");
