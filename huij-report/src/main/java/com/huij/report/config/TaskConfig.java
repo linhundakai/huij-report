@@ -3,6 +3,8 @@
  */
 package com.huij.report.config;
 
+import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,6 +14,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.management.RuntimeErrorException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,22 +71,22 @@ public class TaskConfig {
 		}
 		logger.info(today + ",Vintage跑批开始");
 		try {
-			List<BackM1Vintage> allBackList = backM1VintageMapper.selectAllM1Vintage();
-			scheduler(allBackList, "整体");
+//			List<BackM1Vintage> allBackList = backM1VintageMapper.selectAllM1Vintage();
+//			scheduler(allBackList, "整体");
+//
+//			List<BackM1Vintage> normalBackList = backM1VintageMapper.selectNormalM1Vintage();
+//			scheduler(normalBackList, "常规");
+//
+//			List<BackM1Vintage> cashBackList = backM1VintageMapper.selectCashM1Vintage();
+//			scheduler(cashBackList, "现金贷");
+//
+//			List<BackM1Vintage> discountBackList = backM1VintageMapper.selectDiscountM1Vintage();
+//			scheduler(discountBackList, "10期优惠一点");
+//
+//			List<BackM1Vintage> companyBackList = backM1VintageMapper.selectSubCompanyM1Vintage();
+//			companyScheduler(companyBackList, "分公司营销中心");
 
-			List<BackM1Vintage> normalBackList = backM1VintageMapper.selectNormalM1Vintage();
-			scheduler(normalBackList, "常规");
-
-			List<BackM1Vintage> cashBackList = backM1VintageMapper.selectCashM1Vintage();
-			scheduler(cashBackList, "现金贷");
-
-			List<BackM1Vintage> discountBackList = backM1VintageMapper.selectDiscountM1Vintage();
-			scheduler(discountBackList, "10期优惠一点");
-
-			List<BackM1Vintage> companyBackList = backM1VintageMapper.selectSubCompanyM1Vintage();
-			companyScheduler(companyBackList, "分公司营销中心");
-			
-			// 处理excel颜色
+			// 处理excel颜色和补入空数据
 			colorScheduler();
 		} catch (Exception e) {
 			logger.error(today + ",Vintage跑批异常", e);
@@ -269,7 +273,7 @@ public class TaskConfig {
 	}
 
 	private void colorScheduler() {
-		logger.info("开始更新颜色方案");
+		logger.info("开始颜色方案和空数据");
 		List<M1vintagehj> hjList = m1vintagehjMapper.selectAll();
 		Map<String, List<M1vintagehj>> map = new HashMap<String, List<M1vintagehj>>();
 		String key;
@@ -320,7 +324,49 @@ public class TaskConfig {
 					continue;
 				}
 			}
+			
+			// 补入没有的空数据
+			addData(subList);
 		}
-		logger.info("结束更新颜色方案");
+		logger.info("结束颜色方案和空数据");
+	}
+
+	/**
+	 * 补数据，如果第一条数据的month对应的数据的destmonth大于2016-03，则补入数据2016-03至第一条数据的destmonth所有的数据
+	 * @param subList
+	 */
+	private void addData(List<M1vintagehj> subList) {
+		logger.info("开始补入数据");
+		try {
+			if (null != subList && subList.size() > 0) {
+				Calendar cal_2016_03 = Calendar.getInstance();
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+				cal_2016_03.setTime(format.parse("2016-03"));
+
+				Calendar cal = Calendar.getInstance();
+				M1vintagehj subM1vintagehj = subList.get(0);
+				BigDecimal total_principal = subM1vintagehj.getTotal_principal();
+				
+				String destMonth = subM1vintagehj.getDestmonth();
+				cal.setTime(format.parse(destMonth));
+				while(cal.getTime().compareTo(cal_2016_03.getTime()) > 0) {
+					cal.add(Calendar.MONTH, -1);
+					logger.info("补入数据:type:" + subM1vintagehj.getType_name() + ",month" + subM1vintagehj.getMonth() + ",destmonth:" + format.format(cal.getTime()));
+					M1vintagehj newM1vintagehj = new M1vintagehj();
+					newM1vintagehj.setMonth(subM1vintagehj.getMonth());
+					newM1vintagehj.setTotal_principal(total_principal);
+					newM1vintagehj.setDestmonth(format.format(cal.getTime()));
+					newM1vintagehj.setType_id(subM1vintagehj.getType_id());
+					newM1vintagehj.setType_name(subM1vintagehj.getType_name());
+					newM1vintagehj.setCurr_principal(new BigDecimal("0"));
+					newM1vintagehj.setProportion(0d);
+					m1vintagehjMapper.insertSelective(newM1vintagehj);
+				}
+			}
+		} catch (ParseException e) {
+			logger.error(e.getMessage(), e);
+			throw new RuntimeException(e);
+		}
+		logger.info("结束补入数据");
 	}
 }
