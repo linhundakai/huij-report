@@ -71,20 +71,20 @@ public class TaskConfig {
 		}
 		logger.info(today + ",Vintage跑批开始");
 		try {
-//			List<BackM1Vintage> allBackList = backM1VintageMapper.selectAllM1Vintage();
-//			scheduler(allBackList, "整体");
-//
-//			List<BackM1Vintage> normalBackList = backM1VintageMapper.selectNormalM1Vintage();
-//			scheduler(normalBackList, "常规");
-//
-//			List<BackM1Vintage> cashBackList = backM1VintageMapper.selectCashM1Vintage();
-//			scheduler(cashBackList, "现金贷");
-//
-//			List<BackM1Vintage> discountBackList = backM1VintageMapper.selectDiscountM1Vintage();
-//			scheduler(discountBackList, "10期优惠一点");
-//
-//			List<BackM1Vintage> companyBackList = backM1VintageMapper.selectSubCompanyM1Vintage();
-//			companyScheduler(companyBackList, "分公司营销中心");
+			List<BackM1Vintage> allBackList = backM1VintageMapper.selectAllM1Vintage();
+			scheduler(allBackList, "整体");
+
+			List<BackM1Vintage> normalBackList = backM1VintageMapper.selectNormalM1Vintage();
+			scheduler(normalBackList, "常规");
+
+			List<BackM1Vintage> cashBackList = backM1VintageMapper.selectCashM1Vintage();
+			scheduler(cashBackList, "现金贷");
+
+			List<BackM1Vintage> discountBackList = backM1VintageMapper.selectDiscountM1Vintage();
+			scheduler(discountBackList, "10期优惠一点");
+
+			List<BackM1Vintage> companyBackList = backM1VintageMapper.selectSubCompanyM1Vintage();
+			companyScheduler(companyBackList, "分公司营销中心");
 
 			// 处理excel颜色和补入空数据
 			colorScheduler();
