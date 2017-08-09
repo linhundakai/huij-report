@@ -129,39 +129,24 @@
 	</select>
 
 	<select id="selectSubCompanyM1Vintage" resultType="com.huij.report.back.entity.BackM1Vintage">
-		SELECT
-		(CASE WHEN (t3.parant_org_name IN
-		('南宁市','桂林市','北海市','崇左市','河池市','柳州市','百色市','贵港市','钦州市','玉林市','梧州市','防城港市','十区（胡万霞）')
-		OR t3.org_name IN ('广西营销中心')) THEN '2104'
-		WHEN (t3.parant_org_name IN
-		('贵阳市','黔南州','黔东南州','黔西南州','安顺市','六盘水市','毕节地区','遵义市','铜仁地区') OR
-		t3.org_name IN ('贵州营销中心')) THEN '2115'
-		ELSE company_id END) AS type_id,
-		(CASE WHEN (t3.parant_org_name IN
-		('南宁市','桂林市','北海市','崇左市','河池市','柳州市','百色市','贵港市','钦州市','玉林市','梧州市','防城港市','十区（胡万霞）')
-		OR t3.org_name IN ('广西营销中心')) THEN '广西营销中心'
-		WHEN (t3.parant_org_name IN
-		('贵阳市','黔南州','黔东南州','黔西南州','安顺市','六盘水市','毕节地区','遵义市','铜仁地区') OR
-		t3.org_name IN ('贵州营销中心')) THEN '贵州营销中心'
-		ELSE t3.company_name END) AS type_name,
+		SELECT 
+		t3.company_id AS company_id,
+		t3.company_name  AS company_name_old,
 		DATE_FORMAT(t2.creation_date,'%Y-%m') AS 'month',
 		SUM(t1.total_principal) AS 'total_principal',
-		SUM(IF(t1.delinquency_day>30 AND t1.status=0
-		,t1.total_principal-t1.accum_principal,0)) 'curr_principal',
-		(SUM(IF(t1.delinquency_day>30 AND t1.status=0
-		,t1.total_principal-t1.accum_principal,0))/SUM(t1.total_principal))
-		proportion
-		FROM
-		fireway.lm_account t1
+		SUM(IF(t1.delinquency_day>30 AND t1.status=0 ,t1.total_principal-t1.accum_principal,0)) 'curr_principal',
+		(SUM(IF(t1.delinquency_day>30 AND t1.status=0 ,t1.total_principal-t1.accum_principal,0))/SUM(t1.total_principal)) proportion
+		FROM  
+		fireway.lm_account t1  
 		LEFT JOIN fireway.fe_org_relation t3 ON t3.org_id=t1.leafOrg
-		,fireway.lm_contract t2
-		WHERE
+		,fireway.lm_contract t2  
+		WHERE 
 		t1.contract_id=t2.id
 		AND t2.status>=3
 		AND t3.company_id NOT IN ('453','687','667','658')
-		AND DATE_FORMAT(t2.creation_date,'%Y-%m')>='2016-01'
-		GROUP BY type_name,DATE_FORMAT(t2.creation_date,'%Y-%m')
-		ORDER BY type_name,DATE_FORMAT(t2.creation_date,'%Y-%m');
+		AND DATE_FORMAT(t2.creation_date,'%Y-%m')>='2016-01' 
+		GROUP BY company_name_old,DATE_FORMAT(t2.creation_date,'%Y-%m')
+		ORDER BY company_name_old,DATE_FORMAT(t2.creation_date,'%Y-%m');
 	</select>
 	
 	<select id="selecttest" resultType="java.lang.Integer">
