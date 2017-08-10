@@ -130,8 +130,8 @@
 
 	<select id="selectSubCompanyM1Vintage" resultType="com.huij.report.back.entity.BackM1Vintage">
 		SELECT 
-		t3.company_id AS company_id,
-		t3.company_name  AS company_name_old,
+		t3.company_id AS 'type_id',
+		t3.company_name  AS 'type_name',
 		DATE_FORMAT(t2.creation_date,'%Y-%m') AS 'month',
 		SUM(t1.total_principal) AS 'total_principal',
 		SUM(IF(t1.delinquency_day>30 AND t1.status=0 ,t1.total_principal-t1.accum_principal,0)) 'curr_principal',
@@ -145,8 +145,8 @@
 		AND t2.status>=3
 		AND t3.company_id NOT IN ('453','687','667','658')
 		AND DATE_FORMAT(t2.creation_date,'%Y-%m')>='2016-01' 
-		GROUP BY company_name_old,DATE_FORMAT(t2.creation_date,'%Y-%m')
-		ORDER BY company_name_old,DATE_FORMAT(t2.creation_date,'%Y-%m');
+		GROUP BY type_name,DATE_FORMAT(t2.creation_date,'%Y-%m')
+		ORDER BY type_name,DATE_FORMAT(t2.creation_date,'%Y-%m');
 	</select>
 	
 	<select id="selecttest" resultType="java.lang.Integer">
