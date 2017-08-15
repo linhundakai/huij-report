@@ -150,6 +150,6 @@
 	</select>
 	
 	<select id="selecttest" resultType="java.lang.Integer">
-		select 1
+		SELECT 1 FROM DUAL
 	</select>
 </mapper>
