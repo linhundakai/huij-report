@@ -28,11 +28,25 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+<!-- 		<dependency>   -->
+<!-- 		    <groupId>org.springframework.boot</groupId>   -->
+<!-- 		    <artifactId>spring-boot-starter-jetty</artifactId>   -->
+<!-- 		    <scope>provided</scope> -->
+<!-- 		</dependency>   -->
+		<dependency>  
+		    <groupId>org.springframework.boot</groupId>  
+		    <artifactId>spring-boot-starter-tomcat</artifactId>  
+		</dependency> 
 		<dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-starter-tomcat</artifactId>
-<!-- 	        <scope>provided</scope> -->
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,6 +63,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -78,21 +96,29 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.3.1.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.24</version>
+		</dependency>
 	</dependencies>
-	
-	<build>  
-        <finalName>huij-report</finalName>  
-        <plugins>  
-            <plugin>  
-                <groupId>org.springframework.boot</groupId>  
-                <artifactId>spring-boot-maven-plugin</artifactId>  
-            </plugin>  
-        </plugins>  
-    </build>  
-    <repositories>  
-        <repository>  
-            <id>spring-milestone</id>  
-            <url>http://repo.spring.io/libs-release</url>  
-        </repository>  
-    </repositories>  
+
+	<build>
+		<finalName>huij-report</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>spring-milestone</id>
+			<url>http://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
 </project>

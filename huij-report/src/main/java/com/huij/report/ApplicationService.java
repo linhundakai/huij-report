@@ -3,7 +3,12 @@ package com.huij.report;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Bean;
 
 /**
  * @Author: Leo
@@ -14,9 +19,19 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication(scanBasePackages = "com.huij")
 @ServletComponentScan
 @MapperScan({ "com.huij.report.**.mapper,com.huij.report.**.mapper_ex" })
-public class ApplicationService {
+public class ApplicationService extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApplicationService.class, args);
 	}
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+	return builder.sources(ApplicationService.class);
+    }
+//	@Bean  
+//    public EmbeddedServletContainerFactory servletContainer() {  
+//        JettyEmbeddedServletContainerFactory factory =  
+//                new JettyEmbeddedServletContainerFactory();  
+//        return factory;  
+//    }
 }

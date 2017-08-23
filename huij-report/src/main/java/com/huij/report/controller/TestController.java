@@ -24,8 +24,6 @@ public class TestController {
 	@Autowired
 	private BackM1VintageMapper backM1VintageMapper;
 	
-	@Autowired
-	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public Object test(HttpServletRequest request) {
 //		List<BackM1Vintage> list = backM1VintageMapper.selectAllM1Vintage();
