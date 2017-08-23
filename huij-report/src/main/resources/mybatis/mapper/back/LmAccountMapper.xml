@@ -1,0 +1,2823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huij.report.back.mapper.LmAccountMapper">
+  <resultMap id="BaseResultMap" type="com.huij.report.back.entity.LmAccount">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="contract_id" jdbcType="BIGINT" property="contract_id" />
+    <result column="organization" jdbcType="INTEGER" property="organization" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="creation_date" jdbcType="TIMESTAMP" property="creation_date" />
+    <result column="pre_termination_date" jdbcType="TIMESTAMP" property="pre_termination_date" />
+    <result column="last_active_date" jdbcType="TIMESTAMP" property="last_active_date" />
+    <result column="close_date" jdbcType="TIMESTAMP" property="close_date" />
+    <result column="last_payment_date" jdbcType="TIMESTAMP" property="last_payment_date" />
+    <result column="application_number" jdbcType="VARCHAR" property="application_number" />
+    <result column="customer_id" jdbcType="BIGINT" property="customer_id" />
+    <result column="product_id" jdbcType="BIGINT" property="product_id" />
+    <result column="pricing_id" jdbcType="BIGINT" property="pricing_id" />
+    <result column="repayment_plan" jdbcType="BIGINT" property="repayment_plan" />
+    <result column="scycle" jdbcType="INTEGER" property="scycle" />
+    <result column="due_date" jdbcType="TIMESTAMP" property="due_date" />
+    <result column="grace_date" jdbcType="TIMESTAMP" property="grace_date" />
+    <result column="act_payment_date" jdbcType="TIMESTAMP" property="act_payment_date" />
+    <result column="next_payment_date" jdbcType="TIMESTAMP" property="next_payment_date" />
+    <result column="final_payment_date" jdbcType="TIMESTAMP" property="final_payment_date" />
+    <result column="final_payment_amount" jdbcType="DECIMAL" property="final_payment_amount" />
+    <result column="dd_day" jdbcType="INTEGER" property="dd_day" />
+    <result column="dd_method" jdbcType="INTEGER" property="dd_method" />
+    <result column="cycle_due" jdbcType="INTEGER" property="cycle_due" />
+    <result column="cycle_due_count_1" jdbcType="INTEGER" property="cycle_due_count_1" />
+    <result column="cycle_due_count_2" jdbcType="INTEGER" property="cycle_due_count_2" />
+    <result column="cycle_due_count_3" jdbcType="INTEGER" property="cycle_due_count_3" />
+    <result column="cycle_due_count_4" jdbcType="INTEGER" property="cycle_due_count_4" />
+    <result column="cycle_due_count_5" jdbcType="INTEGER" property="cycle_due_count_5" />
+    <result column="cycle_due_count_6" jdbcType="INTEGER" property="cycle_due_count_6" />
+    <result column="cycle_due_count_7" jdbcType="INTEGER" property="cycle_due_count_7" />
+    <result column="cycle_due_count_8" jdbcType="INTEGER" property="cycle_due_count_8" />
+    <result column="cycle_due_count_9" jdbcType="INTEGER" property="cycle_due_count_9" />
+    <result column="cycle_due_count_10" jdbcType="INTEGER" property="cycle_due_count_10" />
+    <result column="cycle_amount_principal_1" jdbcType="DECIMAL" property="cycle_amount_principal_1" />
+    <result column="cycle_amount_interest_1" jdbcType="DECIMAL" property="cycle_amount_interest_1" />
+    <result column="cycle_amount_service_fee_1" jdbcType="DECIMAL" property="cycle_amount_service_fee_1" />
+    <result column="cycle_amount_penalty_fee_1" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_1" />
+    <result column="cycle_amount_misc_fee_1" jdbcType="DECIMAL" property="cycle_amount_misc_fee_1" />
+    <result column="cycle_amount_principal_2" jdbcType="DECIMAL" property="cycle_amount_principal_2" />
+    <result column="cycle_amount_interest_2" jdbcType="DECIMAL" property="cycle_amount_interest_2" />
+    <result column="cycle_amount_service_fee_2" jdbcType="DECIMAL" property="cycle_amount_service_fee_2" />
+    <result column="cycle_amount_penalty_fee_2" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_2" />
+    <result column="cycle_amount_misc_fee_2" jdbcType="DECIMAL" property="cycle_amount_misc_fee_2" />
+    <result column="cycle_amount_principal_3" jdbcType="DECIMAL" property="cycle_amount_principal_3" />
+    <result column="cycle_amount_interest_3" jdbcType="DECIMAL" property="cycle_amount_interest_3" />
+    <result column="cycle_amount_service_fee_3" jdbcType="DECIMAL" property="cycle_amount_service_fee_3" />
+    <result column="cycle_amount_penalty_fee_3" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_3" />
+    <result column="cycle_amount_misc_fee_3" jdbcType="DECIMAL" property="cycle_amount_misc_fee_3" />
+    <result column="cycle_amount_principal_4" jdbcType="DECIMAL" property="cycle_amount_principal_4" />
+    <result column="cycle_amount_interest_4" jdbcType="DECIMAL" property="cycle_amount_interest_4" />
+    <result column="cycle_amount_service_fee_4" jdbcType="DECIMAL" property="cycle_amount_service_fee_4" />
+    <result column="cycle_amount_penalty_fee_4" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_4" />
+    <result column="cycle_amount_misc_fee_4" jdbcType="DECIMAL" property="cycle_amount_misc_fee_4" />
+    <result column="cycle_amount_principal_5" jdbcType="DECIMAL" property="cycle_amount_principal_5" />
+    <result column="cycle_amount_interest_5" jdbcType="DECIMAL" property="cycle_amount_interest_5" />
+    <result column="cycle_amount_service_fee_5" jdbcType="DECIMAL" property="cycle_amount_service_fee_5" />
+    <result column="cycle_amount_penalty_fee_5" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_5" />
+    <result column="cycle_amount_misc_fee_5" jdbcType="DECIMAL" property="cycle_amount_misc_fee_5" />
+    <result column="cycle_amount_principal_6" jdbcType="DECIMAL" property="cycle_amount_principal_6" />
+    <result column="cycle_amount_interest_6" jdbcType="DECIMAL" property="cycle_amount_interest_6" />
+    <result column="cycle_amount_service_fee_6" jdbcType="DECIMAL" property="cycle_amount_service_fee_6" />
+    <result column="cycle_amount_penalty_fee_6" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_6" />
+    <result column="cycle_amount_misc_fee_6" jdbcType="DECIMAL" property="cycle_amount_misc_fee_6" />
+    <result column="cycle_amount_principal_7" jdbcType="DECIMAL" property="cycle_amount_principal_7" />
+    <result column="cycle_amount_interest_7" jdbcType="DECIMAL" property="cycle_amount_interest_7" />
+    <result column="cycle_amount_service_fee_7" jdbcType="DECIMAL" property="cycle_amount_service_fee_7" />
+    <result column="cycle_amount_penalty_fee_7" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_7" />
+    <result column="cycle_amount_misc_fee_7" jdbcType="DECIMAL" property="cycle_amount_misc_fee_7" />
+    <result column="cycle_amount_principal_8" jdbcType="DECIMAL" property="cycle_amount_principal_8" />
+    <result column="cycle_amount_interest_8" jdbcType="DECIMAL" property="cycle_amount_interest_8" />
+    <result column="cycle_amount_service_fee_8" jdbcType="DECIMAL" property="cycle_amount_service_fee_8" />
+    <result column="cycle_amount_penalty_fee_8" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_8" />
+    <result column="cycle_amount_misc_fee_8" jdbcType="DECIMAL" property="cycle_amount_misc_fee_8" />
+    <result column="cycle_amount_principal_9" jdbcType="DECIMAL" property="cycle_amount_principal_9" />
+    <result column="cycle_amount_interest_9" jdbcType="DECIMAL" property="cycle_amount_interest_9" />
+    <result column="cycle_amount_service_fee_9" jdbcType="DECIMAL" property="cycle_amount_service_fee_9" />
+    <result column="cycle_amount_penalty_fee_9" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_9" />
+    <result column="cycle_amount_misc_fee_9" jdbcType="DECIMAL" property="cycle_amount_misc_fee_9" />
+    <result column="cycle_amount_principal_10" jdbcType="DECIMAL" property="cycle_amount_principal_10" />
+    <result column="cycle_amount_interest_10" jdbcType="DECIMAL" property="cycle_amount_interest_10" />
+    <result column="cycle_amount_service_fee_10" jdbcType="DECIMAL" property="cycle_amount_service_fee_10" />
+    <result column="cycle_amount_penalty_fee_10" jdbcType="DECIMAL" property="cycle_amount_penalty_fee_10" />
+    <result column="cycle_amount_misc_fee_10" jdbcType="DECIMAL" property="cycle_amount_misc_fee_10" />
+    <result column="block_code" jdbcType="CHAR" property="block_code" />
+    <result column="credit_limit" jdbcType="BIGINT" property="credit_limit" />
+    <result column="balance" jdbcType="DECIMAL" property="balance" />
+    <result column="principal" jdbcType="DECIMAL" property="principal" />
+    <result column="interest" jdbcType="DECIMAL" property="interest" />
+    <result column="service_fee" jdbcType="DECIMAL" property="service_fee" />
+    <result column="penalty_fee" jdbcType="DECIMAL" property="penalty_fee" />
+    <result column="misc_fee" jdbcType="DECIMAL" property="misc_fee" />
+    <result column="os_balance" jdbcType="DECIMAL" property="os_balance" />
+    <result column="os_principal" jdbcType="DECIMAL" property="os_principal" />
+    <result column="os_interest" jdbcType="DECIMAL" property="os_interest" />
+    <result column="os_service_fee" jdbcType="DECIMAL" property="os_service_fee" />
+    <result column="os_penalty_fee" jdbcType="DECIMAL" property="os_penalty_fee" />
+    <result column="os_misc_fee" jdbcType="DECIMAL" property="os_misc_fee" />
+    <result column="total_balance" jdbcType="DECIMAL" property="total_balance" />
+    <result column="total_principal" jdbcType="DECIMAL" property="total_principal" />
+    <result column="total_interest" jdbcType="DECIMAL" property="total_interest" />
+    <result column="total_service_fee" jdbcType="DECIMAL" property="total_service_fee" />
+    <result column="total_penalty_fee" jdbcType="DECIMAL" property="total_penalty_fee" />
+    <result column="total_misc_fee" jdbcType="DECIMAL" property="total_misc_fee" />
+    <result column="accum_balance" jdbcType="DECIMAL" property="accum_balance" />
+    <result column="accum_principal" jdbcType="DECIMAL" property="accum_principal" />
+    <result column="accum_interest" jdbcType="DECIMAL" property="accum_interest" />
+    <result column="accum_service_fee" jdbcType="DECIMAL" property="accum_service_fee" />
+    <result column="accum_penalty_fee" jdbcType="DECIMAL" property="accum_penalty_fee" />
+    <result column="accum_misc_fee" jdbcType="DECIMAL" property="accum_misc_fee" />
+    <result column="waive_balance" jdbcType="DECIMAL" property="waive_balance" />
+    <result column="waive_principal" jdbcType="DECIMAL" property="waive_principal" />
+    <result column="waive_interest" jdbcType="DECIMAL" property="waive_interest" />
+    <result column="waive_service_fee" jdbcType="DECIMAL" property="waive_service_fee" />
+    <result column="waive_penalty_fee" jdbcType="DECIMAL" property="waive_penalty_fee" />
+    <result column="waive_misc_fee" jdbcType="DECIMAL" property="waive_misc_fee" />
+    <result column="tenor" jdbcType="INTEGER" property="tenor" />
+    <result column="curr_tenor" jdbcType="INTEGER" property="curr_tenor" />
+    <result column="frequency" jdbcType="CHAR" property="frequency" />
+    <result column="downpayment" jdbcType="DECIMAL" property="downpayment" />
+    <result column="last_payment" jdbcType="DECIMAL" property="last_payment" />
+    <result column="fisrt_payment" jdbcType="DECIMAL" property="fisrt_payment" />
+    <result column="swoff_date" jdbcType="TIMESTAMP" property="swoff_date" />
+    <result column="swoff_status" jdbcType="CHAR" property="swoff_status" />
+    <result column="swoff_amount" jdbcType="DECIMAL" property="swoff_amount" />
+    <result column="chargeoff_date" jdbcType="TIMESTAMP" property="chargeoff_date" />
+    <result column="chargeoff_status" jdbcType="CHAR" property="chargeoff_status" />
+    <result column="chargeoff_amount" jdbcType="DECIMAL" property="chargeoff_amount" />
+    <result column="delinquency_date" jdbcType="TIMESTAMP" property="delinquency_date" />
+    <result column="delinquency_day" jdbcType="INTEGER" property="delinquency_day" />
+    <result column="delinquency_balance" jdbcType="DECIMAL" property="delinquency_balance" />
+    <result column="delinquency_principal" jdbcType="DECIMAL" property="delinquency_principal" />
+    <result column="delinquency_interest" jdbcType="DECIMAL" property="delinquency_interest" />
+    <result column="delinquency_service_fee" jdbcType="DECIMAL" property="delinquency_service_fee" />
+    <result column="delinquency_penalty_fee" jdbcType="DECIMAL" property="delinquency_penalty_fee" />
+    <result column="delinquency_misc_fee" jdbcType="DECIMAL" property="delinquency_misc_fee" />
+    <result column="monthly_payment" jdbcType="DECIMAL" property="monthly_payment" />
+    <result column="monthly_payment_min" jdbcType="DECIMAL" property="monthly_payment_min" />
+    <result column="direct_debit_card_number" jdbcType="CHAR" property="direct_debit_card_number" />
+    <result column="direct_debit_card_name" jdbcType="VARCHAR" property="direct_debit_card_name" />
+    <result column="direct_debit_card_bank" jdbcType="VARCHAR" property="direct_debit_card_bank" />
+    <result column="direct_debit_card_branch" jdbcType="VARCHAR" property="direct_debit_card_branch" />
+    <result column="last_dd_status" jdbcType="CHAR" property="last_dd_status" />
+    <result column="pre_termination_amount" jdbcType="DECIMAL" property="pre_termination_amount" />
+    <result column="reschedule_flag" jdbcType="CHAR" property="reschedule_flag" />
+    <result column="reschedule_date" jdbcType="TIMESTAMP" property="reschedule_date" />
+    <result column="reschedule_amount" jdbcType="DECIMAL" property="reschedule_amount" />
+    <result column="reschedule_account_id" jdbcType="BIGINT" property="reschedule_account_id" />
+    <result column="waive_service_fee_flag" jdbcType="CHAR" property="waive_service_fee_flag" />
+    <result column="waive_penalty_fee_flag" jdbcType="CHAR" property="waive_penalty_fee_flag" />
+    <result column="waive_misc_fee_flag" jdbcType="CHAR" property="waive_misc_fee_flag" />
+    <result column="gl_account_number" jdbcType="BIGINT" property="gl_account_number" />
+    <result column="debit_amount" jdbcType="DECIMAL" property="debit_amount" />
+    <result column="partition_indicator" jdbcType="CHAR" property="partition_indicator" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="last_update" />
+    <result column="last_update_id" jdbcType="VARCHAR" property="last_update_id" />
+    <result column="waive_service_fee_hj" jdbcType="DECIMAL" property="waive_service_fee_hj" />
+    <result column="accum_service_fee_hj" jdbcType="DECIMAL" property="accum_service_fee_hj" />
+    <result column="total_service_fee_hj" jdbcType="DECIMAL" property="total_service_fee_hj" />
+    <result column="os_service_fee_hj" jdbcType="DECIMAL" property="os_service_fee_hj" />
+    <result column="service_fee_hj" jdbcType="DECIMAL" property="service_fee_hj" />
+    <result column="waive_penalty_fee_hj" jdbcType="DECIMAL" property="waive_penalty_fee_hj" />
+    <result column="accum_penalty_fee_hj" jdbcType="DECIMAL" property="accum_penalty_fee_hj" />
+    <result column="total_penalty_fee_hj" jdbcType="DECIMAL" property="total_penalty_fee_hj" />
+    <result column="os_penalty_fee_hj" jdbcType="DECIMAL" property="os_penalty_fee_hj" />
+    <result column="penalty_fee_hj" jdbcType="DECIMAL" property="penalty_fee_hj" />
+    <result column="waive_misc_fee_hj" jdbcType="DECIMAL" property="waive_misc_fee_hj" />
+    <result column="accum_misc_fee_hj" jdbcType="DECIMAL" property="accum_misc_fee_hj" />
+    <result column="total_misc_fee_hj" jdbcType="DECIMAL" property="total_misc_fee_hj" />
+    <result column="os_misc_fee_hj" jdbcType="DECIMAL" property="os_misc_fee_hj" />
+    <result column="misc_fee_hj" jdbcType="DECIMAL" property="misc_fee_hj" />
+    <result column="FirstDelayFlag" jdbcType="VARCHAR" property="firstDelayFlag" />
+    <result column="loanAmt" jdbcType="DECIMAL" property="loanAmt" />
+    <result column="loanReqFeeAmt" jdbcType="DECIMAL" property="loanReqFeeAmt" />
+    <result column="BELONG_ORG" jdbcType="VARCHAR" property="BELONG_ORG" />
+    <result column="yjf_contractNo" jdbcType="VARCHAR" property="yjf_contractNo" />
+    <result column="preferentialFlag" jdbcType="VARCHAR" property="preferentialFlag" />
+    <result column="insuranceFlag" jdbcType="VARCHAR" property="insuranceFlag" />
+    <result column="merchantName" jdbcType="VARCHAR" property="merchantName" />
+    <result column="merchantBankName" jdbcType="VARCHAR" property="merchantBankName" />
+    <result column="merchantBank" jdbcType="VARCHAR" property="merchantBank" />
+    <result column="merchantBankCardNbr" jdbcType="VARCHAR" property="merchantBankCardNbr" />
+    <result column="isreducemechantfee" jdbcType="VARCHAR" property="isreducemechantfee" />
+    <result column="isReductLodgingFee" jdbcType="VARCHAR" property="isReductLodgingFee" />
+    <result column="merchantBankDesc" jdbcType="VARCHAR" property="merchantBankDesc" />
+    <result column="otherContractNo" jdbcType="VARCHAR" property="otherContractNo" />
+    <result column="leafOrg" jdbcType="VARCHAR" property="leafOrg" />
+    <result column="CUSTOMER_BANK_PROVINCE" jdbcType="VARCHAR" property="CUSTOMER_BANK_PROVINCE" />
+    <result column="CUSTOMER_BANK_CITY" jdbcType="VARCHAR" property="CUSTOMER_BANK_CITY" />
+    <result column="CUSTOMER_BANK_COUNTY" jdbcType="VARCHAR" property="CUSTOMER_BANK_COUNTY" />
+    <result column="delinquency_times" jdbcType="INTEGER" property="delinquency_times" />
+    <result column="reject_flag_l" jdbcType="VARCHAR" property="reject_flag_l" />
+    <result column="reject_revive_man" jdbcType="VARCHAR" property="reject_revive_man" />
+    <result column="CUSTOMER_TYPE" jdbcType="INTEGER" property="CUSTOMER_TYPE" />
+    <result column="insurance_id" jdbcType="INTEGER" property="insurance_id" />
+    <result column="monetary_flag" jdbcType="VARCHAR" property="monetary_flag" />
+    <result column="preferential_id" jdbcType="INTEGER" property="preferential_id" />
+    <result column="yxt_deductNumber" jdbcType="INTEGER" property="yxt_deductNumber" />
+    <result column="yxt_enableDeductFlag" jdbcType="INTEGER" property="yxt_enableDeductFlag" />
+    <result column="repayFlag" jdbcType="INTEGER" property="repayFlag" />
+    <result column="customer_bank_code" jdbcType="VARCHAR" property="customer_bank_code" />
+    <result column="agent_name" jdbcType="VARCHAR" property="agent_name" />
+    <result column="agent_id_card" jdbcType="VARCHAR" property="agent_id_card" />
+    <result column="agent_mobile" jdbcType="VARCHAR" property="agent_mobile" />
+    <result column="agent_house_name" jdbcType="VARCHAR" property="agent_house_name" />
+    <result column="agent_bank_account" jdbcType="VARCHAR" property="agent_bank_account" />
+    <result column="agent_bank" jdbcType="VARCHAR" property="agent_bank" />
+    <result column="specialChannelCde" jdbcType="INTEGER" property="specialChannelCde" />
+    <result column="addLoanAmt" jdbcType="DECIMAL" property="addLoanAmt" />
+    <result column="cash_Re_Merchant" jdbcType="VARCHAR" property="cash_Re_Merchant" />
+    <result column="cash_Re_Store" jdbcType="VARCHAR" property="cash_Re_Store" />
+    <result column="statusZj" jdbcType="INTEGER" property="statusZj" />
+    <result column="zjzf_bmd_batchno" jdbcType="VARCHAR" property="zjzf_bmd_batchno" />
+    <result column="kab_Purchase_Flag" jdbcType="VARCHAR" property="kab_Purchase_Flag" />
+    <result column="kab_Id" jdbcType="VARCHAR" property="kab_Id" />
+    <result column="use_Kab" jdbcType="VARCHAR" property="use_Kab" />
+    <result column="kab_Order" jdbcType="VARCHAR" property="kab_Order" />
+    <result column="disaccountType" jdbcType="INTEGER" property="disaccountType" />
+    <result column="disaccountPayType" jdbcType="INTEGER" property="disaccountPayType" />
+    <result column="disaccountAmount" jdbcType="DECIMAL" property="disaccountAmount" />
+    <result column="MERCHANT" jdbcType="INTEGER" property="MERCHANT" />
+    <result column="STORE_CDE" jdbcType="VARCHAR" property="STORE_CDE" />
+    <result column="SALE_PERSON" jdbcType="VARCHAR" property="SALE_PERSON" />
+    <result column="kabfee" jdbcType="DECIMAL" property="kabfee" />
+    <result column="disacount_fee_HJ" jdbcType="DECIMAL" property="disacount_fee_HJ" />
+    <result column="disacount_fee_merchant_fund" jdbcType="DECIMAL" property="disacount_fee_merchant_fund" />
+    <result column="disacount_fee_merchant_hj" jdbcType="DECIMAL" property="disacount_fee_merchant_hj" />
+    <result column="disacount_pay_type_hj" jdbcType="INTEGER" property="disacount_pay_type_hj" />
+    <result column="disacount_type_hj" jdbcType="INTEGER" property="disacount_type_hj" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, contract_id, organization, type, status, description, creation_date, pre_termination_date, 
+    last_active_date, close_date, last_payment_date, application_number, customer_id, 
+    product_id, pricing_id, repayment_plan, scycle, due_date, grace_date, act_payment_date, 
+    next_payment_date, final_payment_date, final_payment_amount, dd_day, dd_method, cycle_due, 
+    cycle_due_count_1, cycle_due_count_2, cycle_due_count_3, cycle_due_count_4, cycle_due_count_5, 
+    cycle_due_count_6, cycle_due_count_7, cycle_due_count_8, cycle_due_count_9, cycle_due_count_10, 
+    cycle_amount_principal_1, cycle_amount_interest_1, cycle_amount_service_fee_1, cycle_amount_penalty_fee_1, 
+    cycle_amount_misc_fee_1, cycle_amount_principal_2, cycle_amount_interest_2, cycle_amount_service_fee_2, 
+    cycle_amount_penalty_fee_2, cycle_amount_misc_fee_2, cycle_amount_principal_3, cycle_amount_interest_3, 
+    cycle_amount_service_fee_3, cycle_amount_penalty_fee_3, cycle_amount_misc_fee_3, 
+    cycle_amount_principal_4, cycle_amount_interest_4, cycle_amount_service_fee_4, cycle_amount_penalty_fee_4, 
+    cycle_amount_misc_fee_4, cycle_amount_principal_5, cycle_amount_interest_5, cycle_amount_service_fee_5, 
+    cycle_amount_penalty_fee_5, cycle_amount_misc_fee_5, cycle_amount_principal_6, cycle_amount_interest_6, 
+    cycle_amount_service_fee_6, cycle_amount_penalty_fee_6, cycle_amount_misc_fee_6, 
+    cycle_amount_principal_7, cycle_amount_interest_7, cycle_amount_service_fee_7, cycle_amount_penalty_fee_7, 
+    cycle_amount_misc_fee_7, cycle_amount_principal_8, cycle_amount_interest_8, cycle_amount_service_fee_8, 
+    cycle_amount_penalty_fee_8, cycle_amount_misc_fee_8, cycle_amount_principal_9, cycle_amount_interest_9, 
+    cycle_amount_service_fee_9, cycle_amount_penalty_fee_9, cycle_amount_misc_fee_9, 
+    cycle_amount_principal_10, cycle_amount_interest_10, cycle_amount_service_fee_10, 
+    cycle_amount_penalty_fee_10, cycle_amount_misc_fee_10, block_code, credit_limit, 
+    balance, principal, interest, service_fee, penalty_fee, misc_fee, os_balance, os_principal, 
+    os_interest, os_service_fee, os_penalty_fee, os_misc_fee, total_balance, total_principal, 
+    total_interest, total_service_fee, total_penalty_fee, total_misc_fee, accum_balance, 
+    accum_principal, accum_interest, accum_service_fee, accum_penalty_fee, accum_misc_fee, 
+    waive_balance, waive_principal, waive_interest, waive_service_fee, waive_penalty_fee, 
+    waive_misc_fee, tenor, curr_tenor, frequency, downpayment, last_payment, fisrt_payment, 
+    swoff_date, swoff_status, swoff_amount, chargeoff_date, chargeoff_status, chargeoff_amount, 
+    delinquency_date, delinquency_day, delinquency_balance, delinquency_principal, delinquency_interest, 
+    delinquency_service_fee, delinquency_penalty_fee, delinquency_misc_fee, monthly_payment, 
+    monthly_payment_min, direct_debit_card_number, direct_debit_card_name, direct_debit_card_bank, 
+    direct_debit_card_branch, last_dd_status, pre_termination_amount, reschedule_flag, 
+    reschedule_date, reschedule_amount, reschedule_account_id, waive_service_fee_flag, 
+    waive_penalty_fee_flag, waive_misc_fee_flag, gl_account_number, debit_amount, partition_indicator, 
+    last_update, last_update_id, waive_service_fee_hj, accum_service_fee_hj, total_service_fee_hj, 
+    os_service_fee_hj, service_fee_hj, waive_penalty_fee_hj, accum_penalty_fee_hj, total_penalty_fee_hj, 
+    os_penalty_fee_hj, penalty_fee_hj, waive_misc_fee_hj, accum_misc_fee_hj, total_misc_fee_hj, 
+    os_misc_fee_hj, misc_fee_hj, FirstDelayFlag, loanAmt, loanReqFeeAmt, BELONG_ORG, 
+    yjf_contractNo, preferentialFlag, insuranceFlag, merchantName, merchantBankName, 
+    merchantBank, merchantBankCardNbr, isreducemechantfee, isReductLodgingFee, merchantBankDesc, 
+    otherContractNo, leafOrg, CUSTOMER_BANK_PROVINCE, CUSTOMER_BANK_CITY, CUSTOMER_BANK_COUNTY, 
+    delinquency_times, reject_flag_l, reject_revive_man, CUSTOMER_TYPE, insurance_id, 
+    monetary_flag, preferential_id, yxt_deductNumber, yxt_enableDeductFlag, repayFlag, 
+    customer_bank_code, agent_name, agent_id_card, agent_mobile, agent_house_name, agent_bank_account, 
+    agent_bank, specialChannelCde, addLoanAmt, cash_Re_Merchant, cash_Re_Store, statusZj, 
+    zjzf_bmd_batchno, kab_Purchase_Flag, kab_Id, use_Kab, kab_Order, disaccountType, 
+    disaccountPayType, disaccountAmount, MERCHANT, STORE_CDE, SALE_PERSON, kabfee, disacount_fee_HJ, 
+    disacount_fee_merchant_fund, disacount_fee_merchant_hj, disacount_pay_type_hj, disacount_type_hj
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from lm_account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from lm_account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.huij.report.back.entity.LmAccount">
+    insert into lm_account (id, contract_id, organization, 
+      type, status, description, 
+      creation_date, pre_termination_date, 
+      last_active_date, close_date, last_payment_date, 
+      application_number, customer_id, product_id, 
+      pricing_id, repayment_plan, scycle, 
+      due_date, grace_date, act_payment_date, 
+      next_payment_date, final_payment_date, 
+      final_payment_amount, dd_day, dd_method, 
+      cycle_due, cycle_due_count_1, cycle_due_count_2, 
+      cycle_due_count_3, cycle_due_count_4, cycle_due_count_5, 
+      cycle_due_count_6, cycle_due_count_7, cycle_due_count_8, 
+      cycle_due_count_9, cycle_due_count_10, 
+      cycle_amount_principal_1, cycle_amount_interest_1, 
+      cycle_amount_service_fee_1, cycle_amount_penalty_fee_1, 
+      cycle_amount_misc_fee_1, cycle_amount_principal_2, 
+      cycle_amount_interest_2, cycle_amount_service_fee_2, 
+      cycle_amount_penalty_fee_2, cycle_amount_misc_fee_2, 
+      cycle_amount_principal_3, cycle_amount_interest_3, 
+      cycle_amount_service_fee_3, cycle_amount_penalty_fee_3, 
+      cycle_amount_misc_fee_3, cycle_amount_principal_4, 
+      cycle_amount_interest_4, cycle_amount_service_fee_4, 
+      cycle_amount_penalty_fee_4, cycle_amount_misc_fee_4, 
+      cycle_amount_principal_5, cycle_amount_interest_5, 
+      cycle_amount_service_fee_5, cycle_amount_penalty_fee_5, 
+      cycle_amount_misc_fee_5, cycle_amount_principal_6, 
+      cycle_amount_interest_6, cycle_amount_service_fee_6, 
+      cycle_amount_penalty_fee_6, cycle_amount_misc_fee_6, 
+      cycle_amount_principal_7, cycle_amount_interest_7, 
+      cycle_amount_service_fee_7, cycle_amount_penalty_fee_7, 
+      cycle_amount_misc_fee_7, cycle_amount_principal_8, 
+      cycle_amount_interest_8, cycle_amount_service_fee_8, 
+      cycle_amount_penalty_fee_8, cycle_amount_misc_fee_8, 
+      cycle_amount_principal_9, cycle_amount_interest_9, 
+      cycle_amount_service_fee_9, cycle_amount_penalty_fee_9, 
+      cycle_amount_misc_fee_9, cycle_amount_principal_10, 
+      cycle_amount_interest_10, cycle_amount_service_fee_10, 
+      cycle_amount_penalty_fee_10, cycle_amount_misc_fee_10, 
+      block_code, credit_limit, balance, 
+      principal, interest, service_fee, 
+      penalty_fee, misc_fee, os_balance, 
+      os_principal, os_interest, os_service_fee, 
+      os_penalty_fee, os_misc_fee, total_balance, 
+      total_principal, total_interest, total_service_fee, 
+      total_penalty_fee, total_misc_fee, accum_balance, 
+      accum_principal, accum_interest, accum_service_fee, 
+      accum_penalty_fee, accum_misc_fee, waive_balance, 
+      waive_principal, waive_interest, waive_service_fee, 
+      waive_penalty_fee, waive_misc_fee, tenor, 
+      curr_tenor, frequency, downpayment, 
+      last_payment, fisrt_payment, swoff_date, 
+      swoff_status, swoff_amount, chargeoff_date, 
+      chargeoff_status, chargeoff_amount, delinquency_date, 
+      delinquency_day, delinquency_balance, delinquency_principal, 
+      delinquency_interest, delinquency_service_fee, 
+      delinquency_penalty_fee, delinquency_misc_fee, 
+      monthly_payment, monthly_payment_min, direct_debit_card_number, 
+      direct_debit_card_name, direct_debit_card_bank, 
+      direct_debit_card_branch, last_dd_status, 
+      pre_termination_amount, reschedule_flag, reschedule_date, 
+      reschedule_amount, reschedule_account_id, 
+      waive_service_fee_flag, waive_penalty_fee_flag, 
+      waive_misc_fee_flag, gl_account_number, debit_amount, 
+      partition_indicator, last_update, last_update_id, 
+      waive_service_fee_hj, accum_service_fee_hj, 
+      total_service_fee_hj, os_service_fee_hj, 
+      service_fee_hj, waive_penalty_fee_hj, accum_penalty_fee_hj, 
+      total_penalty_fee_hj, os_penalty_fee_hj, 
+      penalty_fee_hj, waive_misc_fee_hj, accum_misc_fee_hj, 
+      total_misc_fee_hj, os_misc_fee_hj, misc_fee_hj, 
+      FirstDelayFlag, loanAmt, loanReqFeeAmt, 
+      BELONG_ORG, yjf_contractNo, preferentialFlag, 
+      insuranceFlag, merchantName, merchantBankName, 
+      merchantBank, merchantBankCardNbr, isreducemechantfee, 
+      isReductLodgingFee, merchantBankDesc, otherContractNo, 
+      leafOrg, CUSTOMER_BANK_PROVINCE, CUSTOMER_BANK_CITY, 
+      CUSTOMER_BANK_COUNTY, delinquency_times, 
+      reject_flag_l, reject_revive_man, CUSTOMER_TYPE, 
+      insurance_id, monetary_flag, preferential_id, 
+      yxt_deductNumber, yxt_enableDeductFlag, 
+      repayFlag, customer_bank_code, agent_name, 
+      agent_id_card, agent_mobile, agent_house_name, 
+      agent_bank_account, agent_bank, specialChannelCde, 
+      addLoanAmt, cash_Re_Merchant, cash_Re_Store, 
+      statusZj, zjzf_bmd_batchno, kab_Purchase_Flag, 
+      kab_Id, use_Kab, kab_Order, 
+      disaccountType, disaccountPayType, disaccountAmount, 
+      MERCHANT, STORE_CDE, SALE_PERSON, 
+      kabfee, disacount_fee_HJ, disacount_fee_merchant_fund, 
+      disacount_fee_merchant_hj, disacount_pay_type_hj, 
+      disacount_type_hj)
+    values (#{id,jdbcType=BIGINT}, #{contract_id,jdbcType=BIGINT}, #{organization,jdbcType=INTEGER}, 
+      #{type,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, #{description,jdbcType=VARCHAR}, 
+      #{creation_date,jdbcType=TIMESTAMP}, #{pre_termination_date,jdbcType=TIMESTAMP}, 
+      #{last_active_date,jdbcType=TIMESTAMP}, #{close_date,jdbcType=TIMESTAMP}, #{last_payment_date,jdbcType=TIMESTAMP}, 
+      #{application_number,jdbcType=VARCHAR}, #{customer_id,jdbcType=BIGINT}, #{product_id,jdbcType=BIGINT}, 
+      #{pricing_id,jdbcType=BIGINT}, #{repayment_plan,jdbcType=BIGINT}, #{scycle,jdbcType=INTEGER}, 
+      #{due_date,jdbcType=TIMESTAMP}, #{grace_date,jdbcType=TIMESTAMP}, #{act_payment_date,jdbcType=TIMESTAMP}, 
+      #{next_payment_date,jdbcType=TIMESTAMP}, #{final_payment_date,jdbcType=TIMESTAMP}, 
+      #{final_payment_amount,jdbcType=DECIMAL}, #{dd_day,jdbcType=INTEGER}, #{dd_method,jdbcType=INTEGER}, 
+      #{cycle_due,jdbcType=INTEGER}, #{cycle_due_count_1,jdbcType=INTEGER}, #{cycle_due_count_2,jdbcType=INTEGER}, 
+      #{cycle_due_count_3,jdbcType=INTEGER}, #{cycle_due_count_4,jdbcType=INTEGER}, #{cycle_due_count_5,jdbcType=INTEGER}, 
+      #{cycle_due_count_6,jdbcType=INTEGER}, #{cycle_due_count_7,jdbcType=INTEGER}, #{cycle_due_count_8,jdbcType=INTEGER}, 
+      #{cycle_due_count_9,jdbcType=INTEGER}, #{cycle_due_count_10,jdbcType=INTEGER}, 
+      #{cycle_amount_principal_1,jdbcType=DECIMAL}, #{cycle_amount_interest_1,jdbcType=DECIMAL}, 
+      #{cycle_amount_service_fee_1,jdbcType=DECIMAL}, #{cycle_amount_penalty_fee_1,jdbcType=DECIMAL}, 
+      #{cycle_amount_misc_fee_1,jdbcType=DECIMAL}, #{cycle_amount_principal_2,jdbcType=DECIMAL}, 
+      #{cycle_amount_interest_2,jdbcType=DECIMAL}, #{cycle_amount_service_fee_2,jdbcType=DECIMAL}, 
+      #{cycle_amount_penalty_fee_2,jdbcType=DECIMAL}, #{cycle_amount_misc_fee_2,jdbcType=DECIMAL}, 
+      #{cycle_amount_principal_3,jdbcType=DECIMAL}, #{cycle_amount_interest_3,jdbcType=DECIMAL}, 
+      #{cycle_amount_service_fee_3,jdbcType=DECIMAL}, #{cycle_amount_penalty_fee_3,jdbcType=DECIMAL}, 
+      #{cycle_amount_misc_fee_3,jdbcType=DECIMAL}, #{cycle_amount_principal_4,jdbcType=DECIMAL}, 
+      #{cycle_amount_interest_4,jdbcType=DECIMAL}, #{cycle_amount_service_fee_4,jdbcType=DECIMAL}, 
+      #{cycle_amount_penalty_fee_4,jdbcType=DECIMAL}, #{cycle_amount_misc_fee_4,jdbcType=DECIMAL}, 
+      #{cycle_amount_principal_5,jdbcType=DECIMAL}, #{cycle_amount_interest_5,jdbcType=DECIMAL}, 
+      #{cycle_amount_service_fee_5,jdbcType=DECIMAL}, #{cycle_amount_penalty_fee_5,jdbcType=DECIMAL}, 
+      #{cycle_amount_misc_fee_5,jdbcType=DECIMAL}, #{cycle_amount_principal_6,jdbcType=DECIMAL}, 
+      #{cycle_amount_interest_6,jdbcType=DECIMAL}, #{cycle_amount_service_fee_6,jdbcType=DECIMAL}, 
+      #{cycle_amount_penalty_fee_6,jdbcType=DECIMAL}, #{cycle_amount_misc_fee_6,jdbcType=DECIMAL}, 
+      #{cycle_amount_principal_7,jdbcType=DECIMAL}, #{cycle_amount_interest_7,jdbcType=DECIMAL}, 
+      #{cycle_amount_service_fee_7,jdbcType=DECIMAL}, #{cycle_amount_penalty_fee_7,jdbcType=DECIMAL}, 
+      #{cycle_amount_misc_fee_7,jdbcType=DECIMAL}, #{cycle_amount_principal_8,jdbcType=DECIMAL}, 
+      #{cycle_amount_interest_8,jdbcType=DECIMAL}, #{cycle_amount_service_fee_8,jdbcType=DECIMAL}, 
+      #{cycle_amount_penalty_fee_8,jdbcType=DECIMAL}, #{cycle_amount_misc_fee_8,jdbcType=DECIMAL}, 
+      #{cycle_amount_principal_9,jdbcType=DECIMAL}, #{cycle_amount_interest_9,jdbcType=DECIMAL}, 
+      #{cycle_amount_service_fee_9,jdbcType=DECIMAL}, #{cycle_amount_penalty_fee_9,jdbcType=DECIMAL}, 
+      #{cycle_amount_misc_fee_9,jdbcType=DECIMAL}, #{cycle_amount_principal_10,jdbcType=DECIMAL}, 
+      #{cycle_amount_interest_10,jdbcType=DECIMAL}, #{cycle_amount_service_fee_10,jdbcType=DECIMAL}, 
+      #{cycle_amount_penalty_fee_10,jdbcType=DECIMAL}, #{cycle_amount_misc_fee_10,jdbcType=DECIMAL}, 
+      #{block_code,jdbcType=CHAR}, #{credit_limit,jdbcType=BIGINT}, #{balance,jdbcType=DECIMAL}, 
+      #{principal,jdbcType=DECIMAL}, #{interest,jdbcType=DECIMAL}, #{service_fee,jdbcType=DECIMAL}, 
+      #{penalty_fee,jdbcType=DECIMAL}, #{misc_fee,jdbcType=DECIMAL}, #{os_balance,jdbcType=DECIMAL}, 
+      #{os_principal,jdbcType=DECIMAL}, #{os_interest,jdbcType=DECIMAL}, #{os_service_fee,jdbcType=DECIMAL}, 
+      #{os_penalty_fee,jdbcType=DECIMAL}, #{os_misc_fee,jdbcType=DECIMAL}, #{total_balance,jdbcType=DECIMAL}, 
+      #{total_principal,jdbcType=DECIMAL}, #{total_interest,jdbcType=DECIMAL}, #{total_service_fee,jdbcType=DECIMAL}, 
+      #{total_penalty_fee,jdbcType=DECIMAL}, #{total_misc_fee,jdbcType=DECIMAL}, #{accum_balance,jdbcType=DECIMAL}, 
+      #{accum_principal,jdbcType=DECIMAL}, #{accum_interest,jdbcType=DECIMAL}, #{accum_service_fee,jdbcType=DECIMAL}, 
+      #{accum_penalty_fee,jdbcType=DECIMAL}, #{accum_misc_fee,jdbcType=DECIMAL}, #{waive_balance,jdbcType=DECIMAL}, 
+      #{waive_principal,jdbcType=DECIMAL}, #{waive_interest,jdbcType=DECIMAL}, #{waive_service_fee,jdbcType=DECIMAL}, 
+      #{waive_penalty_fee,jdbcType=DECIMAL}, #{waive_misc_fee,jdbcType=DECIMAL}, #{tenor,jdbcType=INTEGER}, 
+      #{curr_tenor,jdbcType=INTEGER}, #{frequency,jdbcType=CHAR}, #{downpayment,jdbcType=DECIMAL}, 
+      #{last_payment,jdbcType=DECIMAL}, #{fisrt_payment,jdbcType=DECIMAL}, #{swoff_date,jdbcType=TIMESTAMP}, 
+      #{swoff_status,jdbcType=CHAR}, #{swoff_amount,jdbcType=DECIMAL}, #{chargeoff_date,jdbcType=TIMESTAMP}, 
+      #{chargeoff_status,jdbcType=CHAR}, #{chargeoff_amount,jdbcType=DECIMAL}, #{delinquency_date,jdbcType=TIMESTAMP}, 
+      #{delinquency_day,jdbcType=INTEGER}, #{delinquency_balance,jdbcType=DECIMAL}, #{delinquency_principal,jdbcType=DECIMAL}, 
+      #{delinquency_interest,jdbcType=DECIMAL}, #{delinquency_service_fee,jdbcType=DECIMAL}, 
+      #{delinquency_penalty_fee,jdbcType=DECIMAL}, #{delinquency_misc_fee,jdbcType=DECIMAL}, 
+      #{monthly_payment,jdbcType=DECIMAL}, #{monthly_payment_min,jdbcType=DECIMAL}, #{direct_debit_card_number,jdbcType=CHAR}, 
+      #{direct_debit_card_name,jdbcType=VARCHAR}, #{direct_debit_card_bank,jdbcType=VARCHAR}, 
+      #{direct_debit_card_branch,jdbcType=VARCHAR}, #{last_dd_status,jdbcType=CHAR}, 
+      #{pre_termination_amount,jdbcType=DECIMAL}, #{reschedule_flag,jdbcType=CHAR}, #{reschedule_date,jdbcType=TIMESTAMP}, 
+      #{reschedule_amount,jdbcType=DECIMAL}, #{reschedule_account_id,jdbcType=BIGINT}, 
+      #{waive_service_fee_flag,jdbcType=CHAR}, #{waive_penalty_fee_flag,jdbcType=CHAR}, 
+      #{waive_misc_fee_flag,jdbcType=CHAR}, #{gl_account_number,jdbcType=BIGINT}, #{debit_amount,jdbcType=DECIMAL}, 
+      #{partition_indicator,jdbcType=CHAR}, #{last_update,jdbcType=TIMESTAMP}, #{last_update_id,jdbcType=VARCHAR}, 
+      #{waive_service_fee_hj,jdbcType=DECIMAL}, #{accum_service_fee_hj,jdbcType=DECIMAL}, 
+      #{total_service_fee_hj,jdbcType=DECIMAL}, #{os_service_fee_hj,jdbcType=DECIMAL}, 
+      #{service_fee_hj,jdbcType=DECIMAL}, #{waive_penalty_fee_hj,jdbcType=DECIMAL}, #{accum_penalty_fee_hj,jdbcType=DECIMAL}, 
+      #{total_penalty_fee_hj,jdbcType=DECIMAL}, #{os_penalty_fee_hj,jdbcType=DECIMAL}, 
+      #{penalty_fee_hj,jdbcType=DECIMAL}, #{waive_misc_fee_hj,jdbcType=DECIMAL}, #{accum_misc_fee_hj,jdbcType=DECIMAL}, 
+      #{total_misc_fee_hj,jdbcType=DECIMAL}, #{os_misc_fee_hj,jdbcType=DECIMAL}, #{misc_fee_hj,jdbcType=DECIMAL}, 
+      #{firstDelayFlag,jdbcType=VARCHAR}, #{loanAmt,jdbcType=DECIMAL}, #{loanReqFeeAmt,jdbcType=DECIMAL}, 
+      #{BELONG_ORG,jdbcType=VARCHAR}, #{yjf_contractNo,jdbcType=VARCHAR}, #{preferentialFlag,jdbcType=VARCHAR}, 
+      #{insuranceFlag,jdbcType=VARCHAR}, #{merchantName,jdbcType=VARCHAR}, #{merchantBankName,jdbcType=VARCHAR}, 
+      #{merchantBank,jdbcType=VARCHAR}, #{merchantBankCardNbr,jdbcType=VARCHAR}, #{isreducemechantfee,jdbcType=VARCHAR}, 
+      #{isReductLodgingFee,jdbcType=VARCHAR}, #{merchantBankDesc,jdbcType=VARCHAR}, #{otherContractNo,jdbcType=VARCHAR}, 
+      #{leafOrg,jdbcType=VARCHAR}, #{CUSTOMER_BANK_PROVINCE,jdbcType=VARCHAR}, #{CUSTOMER_BANK_CITY,jdbcType=VARCHAR}, 
+      #{CUSTOMER_BANK_COUNTY,jdbcType=VARCHAR}, #{delinquency_times,jdbcType=INTEGER}, 
+      #{reject_flag_l,jdbcType=VARCHAR}, #{reject_revive_man,jdbcType=VARCHAR}, #{CUSTOMER_TYPE,jdbcType=INTEGER}, 
+      #{insurance_id,jdbcType=INTEGER}, #{monetary_flag,jdbcType=VARCHAR}, #{preferential_id,jdbcType=INTEGER}, 
+      #{yxt_deductNumber,jdbcType=INTEGER}, #{yxt_enableDeductFlag,jdbcType=INTEGER}, 
+      #{repayFlag,jdbcType=INTEGER}, #{customer_bank_code,jdbcType=VARCHAR}, #{agent_name,jdbcType=VARCHAR}, 
+      #{agent_id_card,jdbcType=VARCHAR}, #{agent_mobile,jdbcType=VARCHAR}, #{agent_house_name,jdbcType=VARCHAR}, 
+      #{agent_bank_account,jdbcType=VARCHAR}, #{agent_bank,jdbcType=VARCHAR}, #{specialChannelCde,jdbcType=INTEGER}, 
+      #{addLoanAmt,jdbcType=DECIMAL}, #{cash_Re_Merchant,jdbcType=VARCHAR}, #{cash_Re_Store,jdbcType=VARCHAR}, 
+      #{statusZj,jdbcType=INTEGER}, #{zjzf_bmd_batchno,jdbcType=VARCHAR}, #{kab_Purchase_Flag,jdbcType=VARCHAR}, 
+      #{kab_Id,jdbcType=VARCHAR}, #{use_Kab,jdbcType=VARCHAR}, #{kab_Order,jdbcType=VARCHAR}, 
+      #{disaccountType,jdbcType=INTEGER}, #{disaccountPayType,jdbcType=INTEGER}, #{disaccountAmount,jdbcType=DECIMAL}, 
+      #{MERCHANT,jdbcType=INTEGER}, #{STORE_CDE,jdbcType=VARCHAR}, #{SALE_PERSON,jdbcType=VARCHAR}, 
+      #{kabfee,jdbcType=DECIMAL}, #{disacount_fee_HJ,jdbcType=DECIMAL}, #{disacount_fee_merchant_fund,jdbcType=DECIMAL}, 
+      #{disacount_fee_merchant_hj,jdbcType=DECIMAL}, #{disacount_pay_type_hj,jdbcType=INTEGER}, 
+      #{disacount_type_hj,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huij.report.back.entity.LmAccount">
+    insert into lm_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="contract_id != null">
+        contract_id,
+      </if>
+      <if test="organization != null">
+        organization,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="creation_date != null">
+        creation_date,
+      </if>
+      <if test="pre_termination_date != null">
+        pre_termination_date,
+      </if>
+      <if test="last_active_date != null">
+        last_active_date,
+      </if>
+      <if test="close_date != null">
+        close_date,
+      </if>
+      <if test="last_payment_date != null">
+        last_payment_date,
+      </if>
+      <if test="application_number != null">
+        application_number,
+      </if>
+      <if test="customer_id != null">
+        customer_id,
+      </if>
+      <if test="product_id != null">
+        product_id,
+      </if>
+      <if test="pricing_id != null">
+        pricing_id,
+      </if>
+      <if test="repayment_plan != null">
+        repayment_plan,
+      </if>
+      <if test="scycle != null">
+        scycle,
+      </if>
+      <if test="due_date != null">
+        due_date,
+      </if>
+      <if test="grace_date != null">
+        grace_date,
+      </if>
+      <if test="act_payment_date != null">
+        act_payment_date,
+      </if>
+      <if test="next_payment_date != null">
+        next_payment_date,
+      </if>
+      <if test="final_payment_date != null">
+        final_payment_date,
+      </if>
+      <if test="final_payment_amount != null">
+        final_payment_amount,
+      </if>
+      <if test="dd_day != null">
+        dd_day,
+      </if>
+      <if test="dd_method != null">
+        dd_method,
+      </if>
+      <if test="cycle_due != null">
+        cycle_due,
+      </if>
+      <if test="cycle_due_count_1 != null">
+        cycle_due_count_1,
+      </if>
+      <if test="cycle_due_count_2 != null">
+        cycle_due_count_2,
+      </if>
+      <if test="cycle_due_count_3 != null">
+        cycle_due_count_3,
+      </if>
+      <if test="cycle_due_count_4 != null">
+        cycle_due_count_4,
+      </if>
+      <if test="cycle_due_count_5 != null">
+        cycle_due_count_5,
+      </if>
+      <if test="cycle_due_count_6 != null">
+        cycle_due_count_6,
+      </if>
+      <if test="cycle_due_count_7 != null">
+        cycle_due_count_7,
+      </if>
+      <if test="cycle_due_count_8 != null">
+        cycle_due_count_8,
+      </if>
+      <if test="cycle_due_count_9 != null">
+        cycle_due_count_9,
+      </if>
+      <if test="cycle_due_count_10 != null">
+        cycle_due_count_10,
+      </if>
+      <if test="cycle_amount_principal_1 != null">
+        cycle_amount_principal_1,
+      </if>
+      <if test="cycle_amount_interest_1 != null">
+        cycle_amount_interest_1,
+      </if>
+      <if test="cycle_amount_service_fee_1 != null">
+        cycle_amount_service_fee_1,
+      </if>
+      <if test="cycle_amount_penalty_fee_1 != null">
+        cycle_amount_penalty_fee_1,
+      </if>
+      <if test="cycle_amount_misc_fee_1 != null">
+        cycle_amount_misc_fee_1,
+      </if>
+      <if test="cycle_amount_principal_2 != null">
+        cycle_amount_principal_2,
+      </if>
+      <if test="cycle_amount_interest_2 != null">
+        cycle_amount_interest_2,
+      </if>
+      <if test="cycle_amount_service_fee_2 != null">
+        cycle_amount_service_fee_2,
+      </if>
+      <if test="cycle_amount_penalty_fee_2 != null">
+        cycle_amount_penalty_fee_2,
+      </if>
+      <if test="cycle_amount_misc_fee_2 != null">
+        cycle_amount_misc_fee_2,
+      </if>
+      <if test="cycle_amount_principal_3 != null">
+        cycle_amount_principal_3,
+      </if>
+      <if test="cycle_amount_interest_3 != null">
+        cycle_amount_interest_3,
+      </if>
+      <if test="cycle_amount_service_fee_3 != null">
+        cycle_amount_service_fee_3,
+      </if>
+      <if test="cycle_amount_penalty_fee_3 != null">
+        cycle_amount_penalty_fee_3,
+      </if>
+      <if test="cycle_amount_misc_fee_3 != null">
+        cycle_amount_misc_fee_3,
+      </if>
+      <if test="cycle_amount_principal_4 != null">
+        cycle_amount_principal_4,
+      </if>
+      <if test="cycle_amount_interest_4 != null">
+        cycle_amount_interest_4,
+      </if>
+      <if test="cycle_amount_service_fee_4 != null">
+        cycle_amount_service_fee_4,
+      </if>
+      <if test="cycle_amount_penalty_fee_4 != null">
+        cycle_amount_penalty_fee_4,
+      </if>
+      <if test="cycle_amount_misc_fee_4 != null">
+        cycle_amount_misc_fee_4,
+      </if>
+      <if test="cycle_amount_principal_5 != null">
+        cycle_amount_principal_5,
+      </if>
+      <if test="cycle_amount_interest_5 != null">
+        cycle_amount_interest_5,
+      </if>
+      <if test="cycle_amount_service_fee_5 != null">
+        cycle_amount_service_fee_5,
+      </if>
+      <if test="cycle_amount_penalty_fee_5 != null">
+        cycle_amount_penalty_fee_5,
+      </if>
+      <if test="cycle_amount_misc_fee_5 != null">
+        cycle_amount_misc_fee_5,
+      </if>
+      <if test="cycle_amount_principal_6 != null">
+        cycle_amount_principal_6,
+      </if>
+      <if test="cycle_amount_interest_6 != null">
+        cycle_amount_interest_6,
+      </if>
+      <if test="cycle_amount_service_fee_6 != null">
+        cycle_amount_service_fee_6,
+      </if>
+      <if test="cycle_amount_penalty_fee_6 != null">
+        cycle_amount_penalty_fee_6,
+      </if>
+      <if test="cycle_amount_misc_fee_6 != null">
+        cycle_amount_misc_fee_6,
+      </if>
+      <if test="cycle_amount_principal_7 != null">
+        cycle_amount_principal_7,
+      </if>
+      <if test="cycle_amount_interest_7 != null">
+        cycle_amount_interest_7,
+      </if>
+      <if test="cycle_amount_service_fee_7 != null">
+        cycle_amount_service_fee_7,
+      </if>
+      <if test="cycle_amount_penalty_fee_7 != null">
+        cycle_amount_penalty_fee_7,
+      </if>
+      <if test="cycle_amount_misc_fee_7 != null">
+        cycle_amount_misc_fee_7,
+      </if>
+      <if test="cycle_amount_principal_8 != null">
+        cycle_amount_principal_8,
+      </if>
+      <if test="cycle_amount_interest_8 != null">
+        cycle_amount_interest_8,
+      </if>
+      <if test="cycle_amount_service_fee_8 != null">
+        cycle_amount_service_fee_8,
+      </if>
+      <if test="cycle_amount_penalty_fee_8 != null">
+        cycle_amount_penalty_fee_8,
+      </if>
+      <if test="cycle_amount_misc_fee_8 != null">
+        cycle_amount_misc_fee_8,
+      </if>
+      <if test="cycle_amount_principal_9 != null">
+        cycle_amount_principal_9,
+      </if>
+      <if test="cycle_amount_interest_9 != null">
+        cycle_amount_interest_9,
+      </if>
+      <if test="cycle_amount_service_fee_9 != null">
+        cycle_amount_service_fee_9,
+      </if>
+      <if test="cycle_amount_penalty_fee_9 != null">
+        cycle_amount_penalty_fee_9,
+      </if>
+      <if test="cycle_amount_misc_fee_9 != null">
+        cycle_amount_misc_fee_9,
+      </if>
+      <if test="cycle_amount_principal_10 != null">
+        cycle_amount_principal_10,
+      </if>
+      <if test="cycle_amount_interest_10 != null">
+        cycle_amount_interest_10,
+      </if>
+      <if test="cycle_amount_service_fee_10 != null">
+        cycle_amount_service_fee_10,
+      </if>
+      <if test="cycle_amount_penalty_fee_10 != null">
+        cycle_amount_penalty_fee_10,
+      </if>
+      <if test="cycle_amount_misc_fee_10 != null">
+        cycle_amount_misc_fee_10,
+      </if>
+      <if test="block_code != null">
+        block_code,
+      </if>
+      <if test="credit_limit != null">
+        credit_limit,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="principal != null">
+        principal,
+      </if>
+      <if test="interest != null">
+        interest,
+      </if>
+      <if test="service_fee != null">
+        service_fee,
+      </if>
+      <if test="penalty_fee != null">
+        penalty_fee,
+      </if>
+      <if test="misc_fee != null">
+        misc_fee,
+      </if>
+      <if test="os_balance != null">
+        os_balance,
+      </if>
+      <if test="os_principal != null">
+        os_principal,
+      </if>
+      <if test="os_interest != null">
+        os_interest,
+      </if>
+      <if test="os_service_fee != null">
+        os_service_fee,
+      </if>
+      <if test="os_penalty_fee != null">
+        os_penalty_fee,
+      </if>
+      <if test="os_misc_fee != null">
+        os_misc_fee,
+      </if>
+      <if test="total_balance != null">
+        total_balance,
+      </if>
+      <if test="total_principal != null">
+        total_principal,
+      </if>
+      <if test="total_interest != null">
+        total_interest,
+      </if>
+      <if test="total_service_fee != null">
+        total_service_fee,
+      </if>
+      <if test="total_penalty_fee != null">
+        total_penalty_fee,
+      </if>
+      <if test="total_misc_fee != null">
+        total_misc_fee,
+      </if>
+      <if test="accum_balance != null">
+        accum_balance,
+      </if>
+      <if test="accum_principal != null">
+        accum_principal,
+      </if>
+      <if test="accum_interest != null">
+        accum_interest,
+      </if>
+      <if test="accum_service_fee != null">
+        accum_service_fee,
+      </if>
+      <if test="accum_penalty_fee != null">
+        accum_penalty_fee,
+      </if>
+      <if test="accum_misc_fee != null">
+        accum_misc_fee,
+      </if>
+      <if test="waive_balance != null">
+        waive_balance,
+      </if>
+      <if test="waive_principal != null">
+        waive_principal,
+      </if>
+      <if test="waive_interest != null">
+        waive_interest,
+      </if>
+      <if test="waive_service_fee != null">
+        waive_service_fee,
+      </if>
+      <if test="waive_penalty_fee != null">
+        waive_penalty_fee,
+      </if>
+      <if test="waive_misc_fee != null">
+        waive_misc_fee,
+      </if>
+      <if test="tenor != null">
+        tenor,
+      </if>
+      <if test="curr_tenor != null">
+        curr_tenor,
+      </if>
+      <if test="frequency != null">
+        frequency,
+      </if>
+      <if test="downpayment != null">
+        downpayment,
+      </if>
+      <if test="last_payment != null">
+        last_payment,
+      </if>
+      <if test="fisrt_payment != null">
+        fisrt_payment,
+      </if>
+      <if test="swoff_date != null">
+        swoff_date,
+      </if>
+      <if test="swoff_status != null">
+        swoff_status,
+      </if>
+      <if test="swoff_amount != null">
+        swoff_amount,
+      </if>
+      <if test="chargeoff_date != null">
+        chargeoff_date,
+      </if>
+      <if test="chargeoff_status != null">
+        chargeoff_status,
+      </if>
+      <if test="chargeoff_amount != null">
+        chargeoff_amount,
+      </if>
+      <if test="delinquency_date != null">
+        delinquency_date,
+      </if>
+      <if test="delinquency_day != null">
+        delinquency_day,
+      </if>
+      <if test="delinquency_balance != null">
+        delinquency_balance,
+      </if>
+      <if test="delinquency_principal != null">
+        delinquency_principal,
+      </if>
+      <if test="delinquency_interest != null">
+        delinquency_interest,
+      </if>
+      <if test="delinquency_service_fee != null">
+        delinquency_service_fee,
+      </if>
+      <if test="delinquency_penalty_fee != null">
+        delinquency_penalty_fee,
+      </if>
+      <if test="delinquency_misc_fee != null">
+        delinquency_misc_fee,
+      </if>
+      <if test="monthly_payment != null">
+        monthly_payment,
+      </if>
+      <if test="monthly_payment_min != null">
+        monthly_payment_min,
+      </if>
+      <if test="direct_debit_card_number != null">
+        direct_debit_card_number,
+      </if>
+      <if test="direct_debit_card_name != null">
+        direct_debit_card_name,
+      </if>
+      <if test="direct_debit_card_bank != null">
+        direct_debit_card_bank,
+      </if>
+      <if test="direct_debit_card_branch != null">
+        direct_debit_card_branch,
+      </if>
+      <if test="last_dd_status != null">
+        last_dd_status,
+      </if>
+      <if test="pre_termination_amount != null">
+        pre_termination_amount,
+      </if>
+      <if test="reschedule_flag != null">
+        reschedule_flag,
+      </if>
+      <if test="reschedule_date != null">
+        reschedule_date,
+      </if>
+      <if test="reschedule_amount != null">
+        reschedule_amount,
+      </if>
+      <if test="reschedule_account_id != null">
+        reschedule_account_id,
+      </if>
+      <if test="waive_service_fee_flag != null">
+        waive_service_fee_flag,
+      </if>
+      <if test="waive_penalty_fee_flag != null">
+        waive_penalty_fee_flag,
+      </if>
+      <if test="waive_misc_fee_flag != null">
+        waive_misc_fee_flag,
+      </if>
+      <if test="gl_account_number != null">
+        gl_account_number,
+      </if>
+      <if test="debit_amount != null">
+        debit_amount,
+      </if>
+      <if test="partition_indicator != null">
+        partition_indicator,
+      </if>
+      <if test="last_update != null">
+        last_update,
+      </if>
+      <if test="last_update_id != null">
+        last_update_id,
+      </if>
+      <if test="waive_service_fee_hj != null">
+        waive_service_fee_hj,
+      </if>
+      <if test="accum_service_fee_hj != null">
+        accum_service_fee_hj,
+      </if>
+      <if test="total_service_fee_hj != null">
+        total_service_fee_hj,
+      </if>
+      <if test="os_service_fee_hj != null">
+        os_service_fee_hj,
+      </if>
+      <if test="service_fee_hj != null">
+        service_fee_hj,
+      </if>
+      <if test="waive_penalty_fee_hj != null">
+        waive_penalty_fee_hj,
+      </if>
+      <if test="accum_penalty_fee_hj != null">
+        accum_penalty_fee_hj,
+      </if>
+      <if test="total_penalty_fee_hj != null">
+        total_penalty_fee_hj,
+      </if>
+      <if test="os_penalty_fee_hj != null">
+        os_penalty_fee_hj,
+      </if>
+      <if test="penalty_fee_hj != null">
+        penalty_fee_hj,
+      </if>
+      <if test="waive_misc_fee_hj != null">
+        waive_misc_fee_hj,
+      </if>
+      <if test="accum_misc_fee_hj != null">
+        accum_misc_fee_hj,
+      </if>
+      <if test="total_misc_fee_hj != null">
+        total_misc_fee_hj,
+      </if>
+      <if test="os_misc_fee_hj != null">
+        os_misc_fee_hj,
+      </if>
+      <if test="misc_fee_hj != null">
+        misc_fee_hj,
+      </if>
+      <if test="firstDelayFlag != null">
+        FirstDelayFlag,
+      </if>
+      <if test="loanAmt != null">
+        loanAmt,
+      </if>
+      <if test="loanReqFeeAmt != null">
+        loanReqFeeAmt,
+      </if>
+      <if test="BELONG_ORG != null">
+        BELONG_ORG,
+      </if>
+      <if test="yjf_contractNo != null">
+        yjf_contractNo,
+      </if>
+      <if test="preferentialFlag != null">
+        preferentialFlag,
+      </if>
+      <if test="insuranceFlag != null">
+        insuranceFlag,
+      </if>
+      <if test="merchantName != null">
+        merchantName,
+      </if>
+      <if test="merchantBankName != null">
+        merchantBankName,
+      </if>
+      <if test="merchantBank != null">
+        merchantBank,
+      </if>
+      <if test="merchantBankCardNbr != null">
+        merchantBankCardNbr,
+      </if>
+      <if test="isreducemechantfee != null">
+        isreducemechantfee,
+      </if>
+      <if test="isReductLodgingFee != null">
+        isReductLodgingFee,
+      </if>
+      <if test="merchantBankDesc != null">
+        merchantBankDesc,
+      </if>
+      <if test="otherContractNo != null">
+        otherContractNo,
+      </if>
+      <if test="leafOrg != null">
+        leafOrg,
+      </if>
+      <if test="CUSTOMER_BANK_PROVINCE != null">
+        CUSTOMER_BANK_PROVINCE,
+      </if>
+      <if test="CUSTOMER_BANK_CITY != null">
+        CUSTOMER_BANK_CITY,
+      </if>
+      <if test="CUSTOMER_BANK_COUNTY != null">
+        CUSTOMER_BANK_COUNTY,
+      </if>
+      <if test="delinquency_times != null">
+        delinquency_times,
+      </if>
+      <if test="reject_flag_l != null">
+        reject_flag_l,
+      </if>
+      <if test="reject_revive_man != null">
+        reject_revive_man,
+      </if>
+      <if test="CUSTOMER_TYPE != null">
+        CUSTOMER_TYPE,
+      </if>
+      <if test="insurance_id != null">
+        insurance_id,
+      </if>
+      <if test="monetary_flag != null">
+        monetary_flag,
+      </if>
+      <if test="preferential_id != null">
+        preferential_id,
+      </if>
+      <if test="yxt_deductNumber != null">
+        yxt_deductNumber,
+      </if>
+      <if test="yxt_enableDeductFlag != null">
+        yxt_enableDeductFlag,
+      </if>
+      <if test="repayFlag != null">
+        repayFlag,
+      </if>
+      <if test="customer_bank_code != null">
+        customer_bank_code,
+      </if>
+      <if test="agent_name != null">
+        agent_name,
+      </if>
+      <if test="agent_id_card != null">
+        agent_id_card,
+      </if>
+      <if test="agent_mobile != null">
+        agent_mobile,
+      </if>
+      <if test="agent_house_name != null">
+        agent_house_name,
+      </if>
+      <if test="agent_bank_account != null">
+        agent_bank_account,
+      </if>
+      <if test="agent_bank != null">
+        agent_bank,
+      </if>
+      <if test="specialChannelCde != null">
+        specialChannelCde,
+      </if>
+      <if test="addLoanAmt != null">
+        addLoanAmt,
+      </if>
+      <if test="cash_Re_Merchant != null">
+        cash_Re_Merchant,
+      </if>
+      <if test="cash_Re_Store != null">
+        cash_Re_Store,
+      </if>
+      <if test="statusZj != null">
+        statusZj,
+      </if>
+      <if test="zjzf_bmd_batchno != null">
+        zjzf_bmd_batchno,
+      </if>
+      <if test="kab_Purchase_Flag != null">
+        kab_Purchase_Flag,
+      </if>
+      <if test="kab_Id != null">
+        kab_Id,
+      </if>
+      <if test="use_Kab != null">
+        use_Kab,
+      </if>
+      <if test="kab_Order != null">
+        kab_Order,
+      </if>
+      <if test="disaccountType != null">
+        disaccountType,
+      </if>
+      <if test="disaccountPayType != null">
+        disaccountPayType,
+      </if>
+      <if test="disaccountAmount != null">
+        disaccountAmount,
+      </if>
+      <if test="MERCHANT != null">
+        MERCHANT,
+      </if>
+      <if test="STORE_CDE != null">
+        STORE_CDE,
+      </if>
+      <if test="SALE_PERSON != null">
+        SALE_PERSON,
+      </if>
+      <if test="kabfee != null">
+        kabfee,
+      </if>
+      <if test="disacount_fee_HJ != null">
+        disacount_fee_HJ,
+      </if>
+      <if test="disacount_fee_merchant_fund != null">
+        disacount_fee_merchant_fund,
+      </if>
+      <if test="disacount_fee_merchant_hj != null">
+        disacount_fee_merchant_hj,
+      </if>
+      <if test="disacount_pay_type_hj != null">
+        disacount_pay_type_hj,
+      </if>
+      <if test="disacount_type_hj != null">
+        disacount_type_hj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="contract_id != null">
+        #{contract_id,jdbcType=BIGINT},
+      </if>
+      <if test="organization != null">
+        #{organization,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="creation_date != null">
+        #{creation_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pre_termination_date != null">
+        #{pre_termination_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="last_active_date != null">
+        #{last_active_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="close_date != null">
+        #{close_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="last_payment_date != null">
+        #{last_payment_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="application_number != null">
+        #{application_number,jdbcType=VARCHAR},
+      </if>
+      <if test="customer_id != null">
+        #{customer_id,jdbcType=BIGINT},
+      </if>
+      <if test="product_id != null">
+        #{product_id,jdbcType=BIGINT},
+      </if>
+      <if test="pricing_id != null">
+        #{pricing_id,jdbcType=BIGINT},
+      </if>
+      <if test="repayment_plan != null">
+        #{repayment_plan,jdbcType=BIGINT},
+      </if>
+      <if test="scycle != null">
+        #{scycle,jdbcType=INTEGER},
+      </if>
+      <if test="due_date != null">
+        #{due_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grace_date != null">
+        #{grace_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="act_payment_date != null">
+        #{act_payment_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="next_payment_date != null">
+        #{next_payment_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="final_payment_date != null">
+        #{final_payment_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="final_payment_amount != null">
+        #{final_payment_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="dd_day != null">
+        #{dd_day,jdbcType=INTEGER},
+      </if>
+      <if test="dd_method != null">
+        #{dd_method,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due != null">
+        #{cycle_due,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_1 != null">
+        #{cycle_due_count_1,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_2 != null">
+        #{cycle_due_count_2,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_3 != null">
+        #{cycle_due_count_3,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_4 != null">
+        #{cycle_due_count_4,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_5 != null">
+        #{cycle_due_count_5,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_6 != null">
+        #{cycle_due_count_6,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_7 != null">
+        #{cycle_due_count_7,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_8 != null">
+        #{cycle_due_count_8,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_9 != null">
+        #{cycle_due_count_9,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_10 != null">
+        #{cycle_due_count_10,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_amount_principal_1 != null">
+        #{cycle_amount_principal_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_1 != null">
+        #{cycle_amount_interest_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_1 != null">
+        #{cycle_amount_service_fee_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_1 != null">
+        #{cycle_amount_penalty_fee_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_1 != null">
+        #{cycle_amount_misc_fee_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_2 != null">
+        #{cycle_amount_principal_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_2 != null">
+        #{cycle_amount_interest_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_2 != null">
+        #{cycle_amount_service_fee_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_2 != null">
+        #{cycle_amount_penalty_fee_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_2 != null">
+        #{cycle_amount_misc_fee_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_3 != null">
+        #{cycle_amount_principal_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_3 != null">
+        #{cycle_amount_interest_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_3 != null">
+        #{cycle_amount_service_fee_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_3 != null">
+        #{cycle_amount_penalty_fee_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_3 != null">
+        #{cycle_amount_misc_fee_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_4 != null">
+        #{cycle_amount_principal_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_4 != null">
+        #{cycle_amount_interest_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_4 != null">
+        #{cycle_amount_service_fee_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_4 != null">
+        #{cycle_amount_penalty_fee_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_4 != null">
+        #{cycle_amount_misc_fee_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_5 != null">
+        #{cycle_amount_principal_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_5 != null">
+        #{cycle_amount_interest_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_5 != null">
+        #{cycle_amount_service_fee_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_5 != null">
+        #{cycle_amount_penalty_fee_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_5 != null">
+        #{cycle_amount_misc_fee_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_6 != null">
+        #{cycle_amount_principal_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_6 != null">
+        #{cycle_amount_interest_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_6 != null">
+        #{cycle_amount_service_fee_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_6 != null">
+        #{cycle_amount_penalty_fee_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_6 != null">
+        #{cycle_amount_misc_fee_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_7 != null">
+        #{cycle_amount_principal_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_7 != null">
+        #{cycle_amount_interest_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_7 != null">
+        #{cycle_amount_service_fee_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_7 != null">
+        #{cycle_amount_penalty_fee_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_7 != null">
+        #{cycle_amount_misc_fee_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_8 != null">
+        #{cycle_amount_principal_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_8 != null">
+        #{cycle_amount_interest_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_8 != null">
+        #{cycle_amount_service_fee_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_8 != null">
+        #{cycle_amount_penalty_fee_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_8 != null">
+        #{cycle_amount_misc_fee_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_9 != null">
+        #{cycle_amount_principal_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_9 != null">
+        #{cycle_amount_interest_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_9 != null">
+        #{cycle_amount_service_fee_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_9 != null">
+        #{cycle_amount_penalty_fee_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_9 != null">
+        #{cycle_amount_misc_fee_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_10 != null">
+        #{cycle_amount_principal_10,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_10 != null">
+        #{cycle_amount_interest_10,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_10 != null">
+        #{cycle_amount_service_fee_10,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_10 != null">
+        #{cycle_amount_penalty_fee_10,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_10 != null">
+        #{cycle_amount_misc_fee_10,jdbcType=DECIMAL},
+      </if>
+      <if test="block_code != null">
+        #{block_code,jdbcType=CHAR},
+      </if>
+      <if test="credit_limit != null">
+        #{credit_limit,jdbcType=BIGINT},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=DECIMAL},
+      </if>
+      <if test="interest != null">
+        #{interest,jdbcType=DECIMAL},
+      </if>
+      <if test="service_fee != null">
+        #{service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="penalty_fee != null">
+        #{penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="misc_fee != null">
+        #{misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="os_balance != null">
+        #{os_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="os_principal != null">
+        #{os_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="os_interest != null">
+        #{os_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="os_service_fee != null">
+        #{os_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="os_penalty_fee != null">
+        #{os_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="os_misc_fee != null">
+        #{os_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="total_balance != null">
+        #{total_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="total_principal != null">
+        #{total_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="total_interest != null">
+        #{total_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="total_service_fee != null">
+        #{total_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="total_penalty_fee != null">
+        #{total_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="total_misc_fee != null">
+        #{total_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_balance != null">
+        #{accum_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_principal != null">
+        #{accum_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_interest != null">
+        #{accum_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_service_fee != null">
+        #{accum_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_penalty_fee != null">
+        #{accum_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_misc_fee != null">
+        #{accum_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_balance != null">
+        #{waive_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_principal != null">
+        #{waive_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_interest != null">
+        #{waive_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_service_fee != null">
+        #{waive_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_penalty_fee != null">
+        #{waive_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_misc_fee != null">
+        #{waive_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="tenor != null">
+        #{tenor,jdbcType=INTEGER},
+      </if>
+      <if test="curr_tenor != null">
+        #{curr_tenor,jdbcType=INTEGER},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=CHAR},
+      </if>
+      <if test="downpayment != null">
+        #{downpayment,jdbcType=DECIMAL},
+      </if>
+      <if test="last_payment != null">
+        #{last_payment,jdbcType=DECIMAL},
+      </if>
+      <if test="fisrt_payment != null">
+        #{fisrt_payment,jdbcType=DECIMAL},
+      </if>
+      <if test="swoff_date != null">
+        #{swoff_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="swoff_status != null">
+        #{swoff_status,jdbcType=CHAR},
+      </if>
+      <if test="swoff_amount != null">
+        #{swoff_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeoff_date != null">
+        #{chargeoff_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeoff_status != null">
+        #{chargeoff_status,jdbcType=CHAR},
+      </if>
+      <if test="chargeoff_amount != null">
+        #{chargeoff_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_date != null">
+        #{delinquency_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delinquency_day != null">
+        #{delinquency_day,jdbcType=INTEGER},
+      </if>
+      <if test="delinquency_balance != null">
+        #{delinquency_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_principal != null">
+        #{delinquency_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_interest != null">
+        #{delinquency_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_service_fee != null">
+        #{delinquency_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_penalty_fee != null">
+        #{delinquency_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_misc_fee != null">
+        #{delinquency_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="monthly_payment != null">
+        #{monthly_payment,jdbcType=DECIMAL},
+      </if>
+      <if test="monthly_payment_min != null">
+        #{monthly_payment_min,jdbcType=DECIMAL},
+      </if>
+      <if test="direct_debit_card_number != null">
+        #{direct_debit_card_number,jdbcType=CHAR},
+      </if>
+      <if test="direct_debit_card_name != null">
+        #{direct_debit_card_name,jdbcType=VARCHAR},
+      </if>
+      <if test="direct_debit_card_bank != null">
+        #{direct_debit_card_bank,jdbcType=VARCHAR},
+      </if>
+      <if test="direct_debit_card_branch != null">
+        #{direct_debit_card_branch,jdbcType=VARCHAR},
+      </if>
+      <if test="last_dd_status != null">
+        #{last_dd_status,jdbcType=CHAR},
+      </if>
+      <if test="pre_termination_amount != null">
+        #{pre_termination_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="reschedule_flag != null">
+        #{reschedule_flag,jdbcType=CHAR},
+      </if>
+      <if test="reschedule_date != null">
+        #{reschedule_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reschedule_amount != null">
+        #{reschedule_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="reschedule_account_id != null">
+        #{reschedule_account_id,jdbcType=BIGINT},
+      </if>
+      <if test="waive_service_fee_flag != null">
+        #{waive_service_fee_flag,jdbcType=CHAR},
+      </if>
+      <if test="waive_penalty_fee_flag != null">
+        #{waive_penalty_fee_flag,jdbcType=CHAR},
+      </if>
+      <if test="waive_misc_fee_flag != null">
+        #{waive_misc_fee_flag,jdbcType=CHAR},
+      </if>
+      <if test="gl_account_number != null">
+        #{gl_account_number,jdbcType=BIGINT},
+      </if>
+      <if test="debit_amount != null">
+        #{debit_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="partition_indicator != null">
+        #{partition_indicator,jdbcType=CHAR},
+      </if>
+      <if test="last_update != null">
+        #{last_update,jdbcType=TIMESTAMP},
+      </if>
+      <if test="last_update_id != null">
+        #{last_update_id,jdbcType=VARCHAR},
+      </if>
+      <if test="waive_service_fee_hj != null">
+        #{waive_service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_service_fee_hj != null">
+        #{accum_service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="total_service_fee_hj != null">
+        #{total_service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="os_service_fee_hj != null">
+        #{os_service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="service_fee_hj != null">
+        #{service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_penalty_fee_hj != null">
+        #{waive_penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_penalty_fee_hj != null">
+        #{accum_penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="total_penalty_fee_hj != null">
+        #{total_penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="os_penalty_fee_hj != null">
+        #{os_penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="penalty_fee_hj != null">
+        #{penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_misc_fee_hj != null">
+        #{waive_misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_misc_fee_hj != null">
+        #{accum_misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="total_misc_fee_hj != null">
+        #{total_misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="os_misc_fee_hj != null">
+        #{os_misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="misc_fee_hj != null">
+        #{misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="firstDelayFlag != null">
+        #{firstDelayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmt != null">
+        #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanReqFeeAmt != null">
+        #{loanReqFeeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="BELONG_ORG != null">
+        #{BELONG_ORG,jdbcType=VARCHAR},
+      </if>
+      <if test="yjf_contractNo != null">
+        #{yjf_contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="preferentialFlag != null">
+        #{preferentialFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceFlag != null">
+        #{insuranceFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantBankName != null">
+        #{merchantBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantBank != null">
+        #{merchantBank,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantBankCardNbr != null">
+        #{merchantBankCardNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="isreducemechantfee != null">
+        #{isreducemechantfee,jdbcType=VARCHAR},
+      </if>
+      <if test="isReductLodgingFee != null">
+        #{isReductLodgingFee,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantBankDesc != null">
+        #{merchantBankDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="otherContractNo != null">
+        #{otherContractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="leafOrg != null">
+        #{leafOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMER_BANK_PROVINCE != null">
+        #{CUSTOMER_BANK_PROVINCE,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMER_BANK_CITY != null">
+        #{CUSTOMER_BANK_CITY,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMER_BANK_COUNTY != null">
+        #{CUSTOMER_BANK_COUNTY,jdbcType=VARCHAR},
+      </if>
+      <if test="delinquency_times != null">
+        #{delinquency_times,jdbcType=INTEGER},
+      </if>
+      <if test="reject_flag_l != null">
+        #{reject_flag_l,jdbcType=VARCHAR},
+      </if>
+      <if test="reject_revive_man != null">
+        #{reject_revive_man,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMER_TYPE != null">
+        #{CUSTOMER_TYPE,jdbcType=INTEGER},
+      </if>
+      <if test="insurance_id != null">
+        #{insurance_id,jdbcType=INTEGER},
+      </if>
+      <if test="monetary_flag != null">
+        #{monetary_flag,jdbcType=VARCHAR},
+      </if>
+      <if test="preferential_id != null">
+        #{preferential_id,jdbcType=INTEGER},
+      </if>
+      <if test="yxt_deductNumber != null">
+        #{yxt_deductNumber,jdbcType=INTEGER},
+      </if>
+      <if test="yxt_enableDeductFlag != null">
+        #{yxt_enableDeductFlag,jdbcType=INTEGER},
+      </if>
+      <if test="repayFlag != null">
+        #{repayFlag,jdbcType=INTEGER},
+      </if>
+      <if test="customer_bank_code != null">
+        #{customer_bank_code,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_name != null">
+        #{agent_name,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_id_card != null">
+        #{agent_id_card,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_mobile != null">
+        #{agent_mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_house_name != null">
+        #{agent_house_name,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_bank_account != null">
+        #{agent_bank_account,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_bank != null">
+        #{agent_bank,jdbcType=VARCHAR},
+      </if>
+      <if test="specialChannelCde != null">
+        #{specialChannelCde,jdbcType=INTEGER},
+      </if>
+      <if test="addLoanAmt != null">
+        #{addLoanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="cash_Re_Merchant != null">
+        #{cash_Re_Merchant,jdbcType=VARCHAR},
+      </if>
+      <if test="cash_Re_Store != null">
+        #{cash_Re_Store,jdbcType=VARCHAR},
+      </if>
+      <if test="statusZj != null">
+        #{statusZj,jdbcType=INTEGER},
+      </if>
+      <if test="zjzf_bmd_batchno != null">
+        #{zjzf_bmd_batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="kab_Purchase_Flag != null">
+        #{kab_Purchase_Flag,jdbcType=VARCHAR},
+      </if>
+      <if test="kab_Id != null">
+        #{kab_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="use_Kab != null">
+        #{use_Kab,jdbcType=VARCHAR},
+      </if>
+      <if test="kab_Order != null">
+        #{kab_Order,jdbcType=VARCHAR},
+      </if>
+      <if test="disaccountType != null">
+        #{disaccountType,jdbcType=INTEGER},
+      </if>
+      <if test="disaccountPayType != null">
+        #{disaccountPayType,jdbcType=INTEGER},
+      </if>
+      <if test="disaccountAmount != null">
+        #{disaccountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="MERCHANT != null">
+        #{MERCHANT,jdbcType=INTEGER},
+      </if>
+      <if test="STORE_CDE != null">
+        #{STORE_CDE,jdbcType=VARCHAR},
+      </if>
+      <if test="SALE_PERSON != null">
+        #{SALE_PERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="kabfee != null">
+        #{kabfee,jdbcType=DECIMAL},
+      </if>
+      <if test="disacount_fee_HJ != null">
+        #{disacount_fee_HJ,jdbcType=DECIMAL},
+      </if>
+      <if test="disacount_fee_merchant_fund != null">
+        #{disacount_fee_merchant_fund,jdbcType=DECIMAL},
+      </if>
+      <if test="disacount_fee_merchant_hj != null">
+        #{disacount_fee_merchant_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="disacount_pay_type_hj != null">
+        #{disacount_pay_type_hj,jdbcType=INTEGER},
+      </if>
+      <if test="disacount_type_hj != null">
+        #{disacount_type_hj,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huij.report.back.entity.LmAccount">
+    update lm_account
+    <set>
+      <if test="contract_id != null">
+        contract_id = #{contract_id,jdbcType=BIGINT},
+      </if>
+      <if test="organization != null">
+        organization = #{organization,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="creation_date != null">
+        creation_date = #{creation_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pre_termination_date != null">
+        pre_termination_date = #{pre_termination_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="last_active_date != null">
+        last_active_date = #{last_active_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="close_date != null">
+        close_date = #{close_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="last_payment_date != null">
+        last_payment_date = #{last_payment_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="application_number != null">
+        application_number = #{application_number,jdbcType=VARCHAR},
+      </if>
+      <if test="customer_id != null">
+        customer_id = #{customer_id,jdbcType=BIGINT},
+      </if>
+      <if test="product_id != null">
+        product_id = #{product_id,jdbcType=BIGINT},
+      </if>
+      <if test="pricing_id != null">
+        pricing_id = #{pricing_id,jdbcType=BIGINT},
+      </if>
+      <if test="repayment_plan != null">
+        repayment_plan = #{repayment_plan,jdbcType=BIGINT},
+      </if>
+      <if test="scycle != null">
+        scycle = #{scycle,jdbcType=INTEGER},
+      </if>
+      <if test="due_date != null">
+        due_date = #{due_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grace_date != null">
+        grace_date = #{grace_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="act_payment_date != null">
+        act_payment_date = #{act_payment_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="next_payment_date != null">
+        next_payment_date = #{next_payment_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="final_payment_date != null">
+        final_payment_date = #{final_payment_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="final_payment_amount != null">
+        final_payment_amount = #{final_payment_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="dd_day != null">
+        dd_day = #{dd_day,jdbcType=INTEGER},
+      </if>
+      <if test="dd_method != null">
+        dd_method = #{dd_method,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due != null">
+        cycle_due = #{cycle_due,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_1 != null">
+        cycle_due_count_1 = #{cycle_due_count_1,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_2 != null">
+        cycle_due_count_2 = #{cycle_due_count_2,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_3 != null">
+        cycle_due_count_3 = #{cycle_due_count_3,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_4 != null">
+        cycle_due_count_4 = #{cycle_due_count_4,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_5 != null">
+        cycle_due_count_5 = #{cycle_due_count_5,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_6 != null">
+        cycle_due_count_6 = #{cycle_due_count_6,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_7 != null">
+        cycle_due_count_7 = #{cycle_due_count_7,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_8 != null">
+        cycle_due_count_8 = #{cycle_due_count_8,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_9 != null">
+        cycle_due_count_9 = #{cycle_due_count_9,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_due_count_10 != null">
+        cycle_due_count_10 = #{cycle_due_count_10,jdbcType=INTEGER},
+      </if>
+      <if test="cycle_amount_principal_1 != null">
+        cycle_amount_principal_1 = #{cycle_amount_principal_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_1 != null">
+        cycle_amount_interest_1 = #{cycle_amount_interest_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_1 != null">
+        cycle_amount_service_fee_1 = #{cycle_amount_service_fee_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_1 != null">
+        cycle_amount_penalty_fee_1 = #{cycle_amount_penalty_fee_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_1 != null">
+        cycle_amount_misc_fee_1 = #{cycle_amount_misc_fee_1,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_2 != null">
+        cycle_amount_principal_2 = #{cycle_amount_principal_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_2 != null">
+        cycle_amount_interest_2 = #{cycle_amount_interest_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_2 != null">
+        cycle_amount_service_fee_2 = #{cycle_amount_service_fee_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_2 != null">
+        cycle_amount_penalty_fee_2 = #{cycle_amount_penalty_fee_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_2 != null">
+        cycle_amount_misc_fee_2 = #{cycle_amount_misc_fee_2,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_3 != null">
+        cycle_amount_principal_3 = #{cycle_amount_principal_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_3 != null">
+        cycle_amount_interest_3 = #{cycle_amount_interest_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_3 != null">
+        cycle_amount_service_fee_3 = #{cycle_amount_service_fee_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_3 != null">
+        cycle_amount_penalty_fee_3 = #{cycle_amount_penalty_fee_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_3 != null">
+        cycle_amount_misc_fee_3 = #{cycle_amount_misc_fee_3,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_4 != null">
+        cycle_amount_principal_4 = #{cycle_amount_principal_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_4 != null">
+        cycle_amount_interest_4 = #{cycle_amount_interest_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_4 != null">
+        cycle_amount_service_fee_4 = #{cycle_amount_service_fee_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_4 != null">
+        cycle_amount_penalty_fee_4 = #{cycle_amount_penalty_fee_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_4 != null">
+        cycle_amount_misc_fee_4 = #{cycle_amount_misc_fee_4,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_5 != null">
+        cycle_amount_principal_5 = #{cycle_amount_principal_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_5 != null">
+        cycle_amount_interest_5 = #{cycle_amount_interest_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_5 != null">
+        cycle_amount_service_fee_5 = #{cycle_amount_service_fee_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_5 != null">
+        cycle_amount_penalty_fee_5 = #{cycle_amount_penalty_fee_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_5 != null">
+        cycle_amount_misc_fee_5 = #{cycle_amount_misc_fee_5,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_6 != null">
+        cycle_amount_principal_6 = #{cycle_amount_principal_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_6 != null">
+        cycle_amount_interest_6 = #{cycle_amount_interest_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_6 != null">
+        cycle_amount_service_fee_6 = #{cycle_amount_service_fee_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_6 != null">
+        cycle_amount_penalty_fee_6 = #{cycle_amount_penalty_fee_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_6 != null">
+        cycle_amount_misc_fee_6 = #{cycle_amount_misc_fee_6,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_7 != null">
+        cycle_amount_principal_7 = #{cycle_amount_principal_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_7 != null">
+        cycle_amount_interest_7 = #{cycle_amount_interest_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_7 != null">
+        cycle_amount_service_fee_7 = #{cycle_amount_service_fee_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_7 != null">
+        cycle_amount_penalty_fee_7 = #{cycle_amount_penalty_fee_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_7 != null">
+        cycle_amount_misc_fee_7 = #{cycle_amount_misc_fee_7,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_8 != null">
+        cycle_amount_principal_8 = #{cycle_amount_principal_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_8 != null">
+        cycle_amount_interest_8 = #{cycle_amount_interest_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_8 != null">
+        cycle_amount_service_fee_8 = #{cycle_amount_service_fee_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_8 != null">
+        cycle_amount_penalty_fee_8 = #{cycle_amount_penalty_fee_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_8 != null">
+        cycle_amount_misc_fee_8 = #{cycle_amount_misc_fee_8,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_9 != null">
+        cycle_amount_principal_9 = #{cycle_amount_principal_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_9 != null">
+        cycle_amount_interest_9 = #{cycle_amount_interest_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_9 != null">
+        cycle_amount_service_fee_9 = #{cycle_amount_service_fee_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_9 != null">
+        cycle_amount_penalty_fee_9 = #{cycle_amount_penalty_fee_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_9 != null">
+        cycle_amount_misc_fee_9 = #{cycle_amount_misc_fee_9,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_principal_10 != null">
+        cycle_amount_principal_10 = #{cycle_amount_principal_10,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_interest_10 != null">
+        cycle_amount_interest_10 = #{cycle_amount_interest_10,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_service_fee_10 != null">
+        cycle_amount_service_fee_10 = #{cycle_amount_service_fee_10,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_penalty_fee_10 != null">
+        cycle_amount_penalty_fee_10 = #{cycle_amount_penalty_fee_10,jdbcType=DECIMAL},
+      </if>
+      <if test="cycle_amount_misc_fee_10 != null">
+        cycle_amount_misc_fee_10 = #{cycle_amount_misc_fee_10,jdbcType=DECIMAL},
+      </if>
+      <if test="block_code != null">
+        block_code = #{block_code,jdbcType=CHAR},
+      </if>
+      <if test="credit_limit != null">
+        credit_limit = #{credit_limit,jdbcType=BIGINT},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="principal != null">
+        principal = #{principal,jdbcType=DECIMAL},
+      </if>
+      <if test="interest != null">
+        interest = #{interest,jdbcType=DECIMAL},
+      </if>
+      <if test="service_fee != null">
+        service_fee = #{service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="penalty_fee != null">
+        penalty_fee = #{penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="misc_fee != null">
+        misc_fee = #{misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="os_balance != null">
+        os_balance = #{os_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="os_principal != null">
+        os_principal = #{os_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="os_interest != null">
+        os_interest = #{os_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="os_service_fee != null">
+        os_service_fee = #{os_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="os_penalty_fee != null">
+        os_penalty_fee = #{os_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="os_misc_fee != null">
+        os_misc_fee = #{os_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="total_balance != null">
+        total_balance = #{total_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="total_principal != null">
+        total_principal = #{total_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="total_interest != null">
+        total_interest = #{total_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="total_service_fee != null">
+        total_service_fee = #{total_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="total_penalty_fee != null">
+        total_penalty_fee = #{total_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="total_misc_fee != null">
+        total_misc_fee = #{total_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_balance != null">
+        accum_balance = #{accum_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_principal != null">
+        accum_principal = #{accum_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_interest != null">
+        accum_interest = #{accum_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_service_fee != null">
+        accum_service_fee = #{accum_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_penalty_fee != null">
+        accum_penalty_fee = #{accum_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_misc_fee != null">
+        accum_misc_fee = #{accum_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_balance != null">
+        waive_balance = #{waive_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_principal != null">
+        waive_principal = #{waive_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_interest != null">
+        waive_interest = #{waive_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_service_fee != null">
+        waive_service_fee = #{waive_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_penalty_fee != null">
+        waive_penalty_fee = #{waive_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_misc_fee != null">
+        waive_misc_fee = #{waive_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="tenor != null">
+        tenor = #{tenor,jdbcType=INTEGER},
+      </if>
+      <if test="curr_tenor != null">
+        curr_tenor = #{curr_tenor,jdbcType=INTEGER},
+      </if>
+      <if test="frequency != null">
+        frequency = #{frequency,jdbcType=CHAR},
+      </if>
+      <if test="downpayment != null">
+        downpayment = #{downpayment,jdbcType=DECIMAL},
+      </if>
+      <if test="last_payment != null">
+        last_payment = #{last_payment,jdbcType=DECIMAL},
+      </if>
+      <if test="fisrt_payment != null">
+        fisrt_payment = #{fisrt_payment,jdbcType=DECIMAL},
+      </if>
+      <if test="swoff_date != null">
+        swoff_date = #{swoff_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="swoff_status != null">
+        swoff_status = #{swoff_status,jdbcType=CHAR},
+      </if>
+      <if test="swoff_amount != null">
+        swoff_amount = #{swoff_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeoff_date != null">
+        chargeoff_date = #{chargeoff_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeoff_status != null">
+        chargeoff_status = #{chargeoff_status,jdbcType=CHAR},
+      </if>
+      <if test="chargeoff_amount != null">
+        chargeoff_amount = #{chargeoff_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_date != null">
+        delinquency_date = #{delinquency_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delinquency_day != null">
+        delinquency_day = #{delinquency_day,jdbcType=INTEGER},
+      </if>
+      <if test="delinquency_balance != null">
+        delinquency_balance = #{delinquency_balance,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_principal != null">
+        delinquency_principal = #{delinquency_principal,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_interest != null">
+        delinquency_interest = #{delinquency_interest,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_service_fee != null">
+        delinquency_service_fee = #{delinquency_service_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_penalty_fee != null">
+        delinquency_penalty_fee = #{delinquency_penalty_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="delinquency_misc_fee != null">
+        delinquency_misc_fee = #{delinquency_misc_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="monthly_payment != null">
+        monthly_payment = #{monthly_payment,jdbcType=DECIMAL},
+      </if>
+      <if test="monthly_payment_min != null">
+        monthly_payment_min = #{monthly_payment_min,jdbcType=DECIMAL},
+      </if>
+      <if test="direct_debit_card_number != null">
+        direct_debit_card_number = #{direct_debit_card_number,jdbcType=CHAR},
+      </if>
+      <if test="direct_debit_card_name != null">
+        direct_debit_card_name = #{direct_debit_card_name,jdbcType=VARCHAR},
+      </if>
+      <if test="direct_debit_card_bank != null">
+        direct_debit_card_bank = #{direct_debit_card_bank,jdbcType=VARCHAR},
+      </if>
+      <if test="direct_debit_card_branch != null">
+        direct_debit_card_branch = #{direct_debit_card_branch,jdbcType=VARCHAR},
+      </if>
+      <if test="last_dd_status != null">
+        last_dd_status = #{last_dd_status,jdbcType=CHAR},
+      </if>
+      <if test="pre_termination_amount != null">
+        pre_termination_amount = #{pre_termination_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="reschedule_flag != null">
+        reschedule_flag = #{reschedule_flag,jdbcType=CHAR},
+      </if>
+      <if test="reschedule_date != null">
+        reschedule_date = #{reschedule_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reschedule_amount != null">
+        reschedule_amount = #{reschedule_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="reschedule_account_id != null">
+        reschedule_account_id = #{reschedule_account_id,jdbcType=BIGINT},
+      </if>
+      <if test="waive_service_fee_flag != null">
+        waive_service_fee_flag = #{waive_service_fee_flag,jdbcType=CHAR},
+      </if>
+      <if test="waive_penalty_fee_flag != null">
+        waive_penalty_fee_flag = #{waive_penalty_fee_flag,jdbcType=CHAR},
+      </if>
+      <if test="waive_misc_fee_flag != null">
+        waive_misc_fee_flag = #{waive_misc_fee_flag,jdbcType=CHAR},
+      </if>
+      <if test="gl_account_number != null">
+        gl_account_number = #{gl_account_number,jdbcType=BIGINT},
+      </if>
+      <if test="debit_amount != null">
+        debit_amount = #{debit_amount,jdbcType=DECIMAL},
+      </if>
+      <if test="partition_indicator != null">
+        partition_indicator = #{partition_indicator,jdbcType=CHAR},
+      </if>
+      <if test="last_update != null">
+        last_update = #{last_update,jdbcType=TIMESTAMP},
+      </if>
+      <if test="last_update_id != null">
+        last_update_id = #{last_update_id,jdbcType=VARCHAR},
+      </if>
+      <if test="waive_service_fee_hj != null">
+        waive_service_fee_hj = #{waive_service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_service_fee_hj != null">
+        accum_service_fee_hj = #{accum_service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="total_service_fee_hj != null">
+        total_service_fee_hj = #{total_service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="os_service_fee_hj != null">
+        os_service_fee_hj = #{os_service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="service_fee_hj != null">
+        service_fee_hj = #{service_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_penalty_fee_hj != null">
+        waive_penalty_fee_hj = #{waive_penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_penalty_fee_hj != null">
+        accum_penalty_fee_hj = #{accum_penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="total_penalty_fee_hj != null">
+        total_penalty_fee_hj = #{total_penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="os_penalty_fee_hj != null">
+        os_penalty_fee_hj = #{os_penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="penalty_fee_hj != null">
+        penalty_fee_hj = #{penalty_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="waive_misc_fee_hj != null">
+        waive_misc_fee_hj = #{waive_misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="accum_misc_fee_hj != null">
+        accum_misc_fee_hj = #{accum_misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="total_misc_fee_hj != null">
+        total_misc_fee_hj = #{total_misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="os_misc_fee_hj != null">
+        os_misc_fee_hj = #{os_misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="misc_fee_hj != null">
+        misc_fee_hj = #{misc_fee_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="firstDelayFlag != null">
+        FirstDelayFlag = #{firstDelayFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loanAmt != null">
+        loanAmt = #{loanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanReqFeeAmt != null">
+        loanReqFeeAmt = #{loanReqFeeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="BELONG_ORG != null">
+        BELONG_ORG = #{BELONG_ORG,jdbcType=VARCHAR},
+      </if>
+      <if test="yjf_contractNo != null">
+        yjf_contractNo = #{yjf_contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="preferentialFlag != null">
+        preferentialFlag = #{preferentialFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceFlag != null">
+        insuranceFlag = #{insuranceFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        merchantName = #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantBankName != null">
+        merchantBankName = #{merchantBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantBank != null">
+        merchantBank = #{merchantBank,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantBankCardNbr != null">
+        merchantBankCardNbr = #{merchantBankCardNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="isreducemechantfee != null">
+        isreducemechantfee = #{isreducemechantfee,jdbcType=VARCHAR},
+      </if>
+      <if test="isReductLodgingFee != null">
+        isReductLodgingFee = #{isReductLodgingFee,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantBankDesc != null">
+        merchantBankDesc = #{merchantBankDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="otherContractNo != null">
+        otherContractNo = #{otherContractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="leafOrg != null">
+        leafOrg = #{leafOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMER_BANK_PROVINCE != null">
+        CUSTOMER_BANK_PROVINCE = #{CUSTOMER_BANK_PROVINCE,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMER_BANK_CITY != null">
+        CUSTOMER_BANK_CITY = #{CUSTOMER_BANK_CITY,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMER_BANK_COUNTY != null">
+        CUSTOMER_BANK_COUNTY = #{CUSTOMER_BANK_COUNTY,jdbcType=VARCHAR},
+      </if>
+      <if test="delinquency_times != null">
+        delinquency_times = #{delinquency_times,jdbcType=INTEGER},
+      </if>
+      <if test="reject_flag_l != null">
+        reject_flag_l = #{reject_flag_l,jdbcType=VARCHAR},
+      </if>
+      <if test="reject_revive_man != null">
+        reject_revive_man = #{reject_revive_man,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMER_TYPE != null">
+        CUSTOMER_TYPE = #{CUSTOMER_TYPE,jdbcType=INTEGER},
+      </if>
+      <if test="insurance_id != null">
+        insurance_id = #{insurance_id,jdbcType=INTEGER},
+      </if>
+      <if test="monetary_flag != null">
+        monetary_flag = #{monetary_flag,jdbcType=VARCHAR},
+      </if>
+      <if test="preferential_id != null">
+        preferential_id = #{preferential_id,jdbcType=INTEGER},
+      </if>
+      <if test="yxt_deductNumber != null">
+        yxt_deductNumber = #{yxt_deductNumber,jdbcType=INTEGER},
+      </if>
+      <if test="yxt_enableDeductFlag != null">
+        yxt_enableDeductFlag = #{yxt_enableDeductFlag,jdbcType=INTEGER},
+      </if>
+      <if test="repayFlag != null">
+        repayFlag = #{repayFlag,jdbcType=INTEGER},
+      </if>
+      <if test="customer_bank_code != null">
+        customer_bank_code = #{customer_bank_code,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_name != null">
+        agent_name = #{agent_name,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_id_card != null">
+        agent_id_card = #{agent_id_card,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_mobile != null">
+        agent_mobile = #{agent_mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_house_name != null">
+        agent_house_name = #{agent_house_name,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_bank_account != null">
+        agent_bank_account = #{agent_bank_account,jdbcType=VARCHAR},
+      </if>
+      <if test="agent_bank != null">
+        agent_bank = #{agent_bank,jdbcType=VARCHAR},
+      </if>
+      <if test="specialChannelCde != null">
+        specialChannelCde = #{specialChannelCde,jdbcType=INTEGER},
+      </if>
+      <if test="addLoanAmt != null">
+        addLoanAmt = #{addLoanAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="cash_Re_Merchant != null">
+        cash_Re_Merchant = #{cash_Re_Merchant,jdbcType=VARCHAR},
+      </if>
+      <if test="cash_Re_Store != null">
+        cash_Re_Store = #{cash_Re_Store,jdbcType=VARCHAR},
+      </if>
+      <if test="statusZj != null">
+        statusZj = #{statusZj,jdbcType=INTEGER},
+      </if>
+      <if test="zjzf_bmd_batchno != null">
+        zjzf_bmd_batchno = #{zjzf_bmd_batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="kab_Purchase_Flag != null">
+        kab_Purchase_Flag = #{kab_Purchase_Flag,jdbcType=VARCHAR},
+      </if>
+      <if test="kab_Id != null">
+        kab_Id = #{kab_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="use_Kab != null">
+        use_Kab = #{use_Kab,jdbcType=VARCHAR},
+      </if>
+      <if test="kab_Order != null">
+        kab_Order = #{kab_Order,jdbcType=VARCHAR},
+      </if>
+      <if test="disaccountType != null">
+        disaccountType = #{disaccountType,jdbcType=INTEGER},
+      </if>
+      <if test="disaccountPayType != null">
+        disaccountPayType = #{disaccountPayType,jdbcType=INTEGER},
+      </if>
+      <if test="disaccountAmount != null">
+        disaccountAmount = #{disaccountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="MERCHANT != null">
+        MERCHANT = #{MERCHANT,jdbcType=INTEGER},
+      </if>
+      <if test="STORE_CDE != null">
+        STORE_CDE = #{STORE_CDE,jdbcType=VARCHAR},
+      </if>
+      <if test="SALE_PERSON != null">
+        SALE_PERSON = #{SALE_PERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="kabfee != null">
+        kabfee = #{kabfee,jdbcType=DECIMAL},
+      </if>
+      <if test="disacount_fee_HJ != null">
+        disacount_fee_HJ = #{disacount_fee_HJ,jdbcType=DECIMAL},
+      </if>
+      <if test="disacount_fee_merchant_fund != null">
+        disacount_fee_merchant_fund = #{disacount_fee_merchant_fund,jdbcType=DECIMAL},
+      </if>
+      <if test="disacount_fee_merchant_hj != null">
+        disacount_fee_merchant_hj = #{disacount_fee_merchant_hj,jdbcType=DECIMAL},
+      </if>
+      <if test="disacount_pay_type_hj != null">
+        disacount_pay_type_hj = #{disacount_pay_type_hj,jdbcType=INTEGER},
+      </if>
+      <if test="disacount_type_hj != null">
+        disacount_type_hj = #{disacount_type_hj,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huij.report.back.entity.LmAccount">
+    update lm_account
+    set contract_id = #{contract_id,jdbcType=BIGINT},
+      organization = #{organization,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      status = #{status,jdbcType=CHAR},
+      description = #{description,jdbcType=VARCHAR},
+      creation_date = #{creation_date,jdbcType=TIMESTAMP},
+      pre_termination_date = #{pre_termination_date,jdbcType=TIMESTAMP},
+      last_active_date = #{last_active_date,jdbcType=TIMESTAMP},
+      close_date = #{close_date,jdbcType=TIMESTAMP},
+      last_payment_date = #{last_payment_date,jdbcType=TIMESTAMP},
+      application_number = #{application_number,jdbcType=VARCHAR},
+      customer_id = #{customer_id,jdbcType=BIGINT},
+      product_id = #{product_id,jdbcType=BIGINT},
+      pricing_id = #{pricing_id,jdbcType=BIGINT},
+      repayment_plan = #{repayment_plan,jdbcType=BIGINT},
+      scycle = #{scycle,jdbcType=INTEGER},
+      due_date = #{due_date,jdbcType=TIMESTAMP},
+      grace_date = #{grace_date,jdbcType=TIMESTAMP},
+      act_payment_date = #{act_payment_date,jdbcType=TIMESTAMP},
+      next_payment_date = #{next_payment_date,jdbcType=TIMESTAMP},
+      final_payment_date = #{final_payment_date,jdbcType=TIMESTAMP},
+      final_payment_amount = #{final_payment_amount,jdbcType=DECIMAL},
+      dd_day = #{dd_day,jdbcType=INTEGER},
+      dd_method = #{dd_method,jdbcType=INTEGER},
+      cycle_due = #{cycle_due,jdbcType=INTEGER},
+      cycle_due_count_1 = #{cycle_due_count_1,jdbcType=INTEGER},
+      cycle_due_count_2 = #{cycle_due_count_2,jdbcType=INTEGER},
+      cycle_due_count_3 = #{cycle_due_count_3,jdbcType=INTEGER},
+      cycle_due_count_4 = #{cycle_due_count_4,jdbcType=INTEGER},
+      cycle_due_count_5 = #{cycle_due_count_5,jdbcType=INTEGER},
+      cycle_due_count_6 = #{cycle_due_count_6,jdbcType=INTEGER},
+      cycle_due_count_7 = #{cycle_due_count_7,jdbcType=INTEGER},
+      cycle_due_count_8 = #{cycle_due_count_8,jdbcType=INTEGER},
+      cycle_due_count_9 = #{cycle_due_count_9,jdbcType=INTEGER},
+      cycle_due_count_10 = #{cycle_due_count_10,jdbcType=INTEGER},
+      cycle_amount_principal_1 = #{cycle_amount_principal_1,jdbcType=DECIMAL},
+      cycle_amount_interest_1 = #{cycle_amount_interest_1,jdbcType=DECIMAL},
+      cycle_amount_service_fee_1 = #{cycle_amount_service_fee_1,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_1 = #{cycle_amount_penalty_fee_1,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_1 = #{cycle_amount_misc_fee_1,jdbcType=DECIMAL},
+      cycle_amount_principal_2 = #{cycle_amount_principal_2,jdbcType=DECIMAL},
+      cycle_amount_interest_2 = #{cycle_amount_interest_2,jdbcType=DECIMAL},
+      cycle_amount_service_fee_2 = #{cycle_amount_service_fee_2,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_2 = #{cycle_amount_penalty_fee_2,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_2 = #{cycle_amount_misc_fee_2,jdbcType=DECIMAL},
+      cycle_amount_principal_3 = #{cycle_amount_principal_3,jdbcType=DECIMAL},
+      cycle_amount_interest_3 = #{cycle_amount_interest_3,jdbcType=DECIMAL},
+      cycle_amount_service_fee_3 = #{cycle_amount_service_fee_3,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_3 = #{cycle_amount_penalty_fee_3,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_3 = #{cycle_amount_misc_fee_3,jdbcType=DECIMAL},
+      cycle_amount_principal_4 = #{cycle_amount_principal_4,jdbcType=DECIMAL},
+      cycle_amount_interest_4 = #{cycle_amount_interest_4,jdbcType=DECIMAL},
+      cycle_amount_service_fee_4 = #{cycle_amount_service_fee_4,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_4 = #{cycle_amount_penalty_fee_4,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_4 = #{cycle_amount_misc_fee_4,jdbcType=DECIMAL},
+      cycle_amount_principal_5 = #{cycle_amount_principal_5,jdbcType=DECIMAL},
+      cycle_amount_interest_5 = #{cycle_amount_interest_5,jdbcType=DECIMAL},
+      cycle_amount_service_fee_5 = #{cycle_amount_service_fee_5,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_5 = #{cycle_amount_penalty_fee_5,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_5 = #{cycle_amount_misc_fee_5,jdbcType=DECIMAL},
+      cycle_amount_principal_6 = #{cycle_amount_principal_6,jdbcType=DECIMAL},
+      cycle_amount_interest_6 = #{cycle_amount_interest_6,jdbcType=DECIMAL},
+      cycle_amount_service_fee_6 = #{cycle_amount_service_fee_6,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_6 = #{cycle_amount_penalty_fee_6,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_6 = #{cycle_amount_misc_fee_6,jdbcType=DECIMAL},
+      cycle_amount_principal_7 = #{cycle_amount_principal_7,jdbcType=DECIMAL},
+      cycle_amount_interest_7 = #{cycle_amount_interest_7,jdbcType=DECIMAL},
+      cycle_amount_service_fee_7 = #{cycle_amount_service_fee_7,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_7 = #{cycle_amount_penalty_fee_7,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_7 = #{cycle_amount_misc_fee_7,jdbcType=DECIMAL},
+      cycle_amount_principal_8 = #{cycle_amount_principal_8,jdbcType=DECIMAL},
+      cycle_amount_interest_8 = #{cycle_amount_interest_8,jdbcType=DECIMAL},
+      cycle_amount_service_fee_8 = #{cycle_amount_service_fee_8,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_8 = #{cycle_amount_penalty_fee_8,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_8 = #{cycle_amount_misc_fee_8,jdbcType=DECIMAL},
+      cycle_amount_principal_9 = #{cycle_amount_principal_9,jdbcType=DECIMAL},
+      cycle_amount_interest_9 = #{cycle_amount_interest_9,jdbcType=DECIMAL},
+      cycle_amount_service_fee_9 = #{cycle_amount_service_fee_9,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_9 = #{cycle_amount_penalty_fee_9,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_9 = #{cycle_amount_misc_fee_9,jdbcType=DECIMAL},
+      cycle_amount_principal_10 = #{cycle_amount_principal_10,jdbcType=DECIMAL},
+      cycle_amount_interest_10 = #{cycle_amount_interest_10,jdbcType=DECIMAL},
+      cycle_amount_service_fee_10 = #{cycle_amount_service_fee_10,jdbcType=DECIMAL},
+      cycle_amount_penalty_fee_10 = #{cycle_amount_penalty_fee_10,jdbcType=DECIMAL},
+      cycle_amount_misc_fee_10 = #{cycle_amount_misc_fee_10,jdbcType=DECIMAL},
+      block_code = #{block_code,jdbcType=CHAR},
+      credit_limit = #{credit_limit,jdbcType=BIGINT},
+      balance = #{balance,jdbcType=DECIMAL},
+      principal = #{principal,jdbcType=DECIMAL},
+      interest = #{interest,jdbcType=DECIMAL},
+      service_fee = #{service_fee,jdbcType=DECIMAL},
+      penalty_fee = #{penalty_fee,jdbcType=DECIMAL},
+      misc_fee = #{misc_fee,jdbcType=DECIMAL},
+      os_balance = #{os_balance,jdbcType=DECIMAL},
+      os_principal = #{os_principal,jdbcType=DECIMAL},
+      os_interest = #{os_interest,jdbcType=DECIMAL},
+      os_service_fee = #{os_service_fee,jdbcType=DECIMAL},
+      os_penalty_fee = #{os_penalty_fee,jdbcType=DECIMAL},
+      os_misc_fee = #{os_misc_fee,jdbcType=DECIMAL},
+      total_balance = #{total_balance,jdbcType=DECIMAL},
+      total_principal = #{total_principal,jdbcType=DECIMAL},
+      total_interest = #{total_interest,jdbcType=DECIMAL},
+      total_service_fee = #{total_service_fee,jdbcType=DECIMAL},
+      total_penalty_fee = #{total_penalty_fee,jdbcType=DECIMAL},
+      total_misc_fee = #{total_misc_fee,jdbcType=DECIMAL},
+      accum_balance = #{accum_balance,jdbcType=DECIMAL},
+      accum_principal = #{accum_principal,jdbcType=DECIMAL},
+      accum_interest = #{accum_interest,jdbcType=DECIMAL},
+      accum_service_fee = #{accum_service_fee,jdbcType=DECIMAL},
+      accum_penalty_fee = #{accum_penalty_fee,jdbcType=DECIMAL},
+      accum_misc_fee = #{accum_misc_fee,jdbcType=DECIMAL},
+      waive_balance = #{waive_balance,jdbcType=DECIMAL},
+      waive_principal = #{waive_principal,jdbcType=DECIMAL},
+      waive_interest = #{waive_interest,jdbcType=DECIMAL},
+      waive_service_fee = #{waive_service_fee,jdbcType=DECIMAL},
+      waive_penalty_fee = #{waive_penalty_fee,jdbcType=DECIMAL},
+      waive_misc_fee = #{waive_misc_fee,jdbcType=DECIMAL},
+      tenor = #{tenor,jdbcType=INTEGER},
+      curr_tenor = #{curr_tenor,jdbcType=INTEGER},
+      frequency = #{frequency,jdbcType=CHAR},
+      downpayment = #{downpayment,jdbcType=DECIMAL},
+      last_payment = #{last_payment,jdbcType=DECIMAL},
+      fisrt_payment = #{fisrt_payment,jdbcType=DECIMAL},
+      swoff_date = #{swoff_date,jdbcType=TIMESTAMP},
+      swoff_status = #{swoff_status,jdbcType=CHAR},
+      swoff_amount = #{swoff_amount,jdbcType=DECIMAL},
+      chargeoff_date = #{chargeoff_date,jdbcType=TIMESTAMP},
+      chargeoff_status = #{chargeoff_status,jdbcType=CHAR},
+      chargeoff_amount = #{chargeoff_amount,jdbcType=DECIMAL},
+      delinquency_date = #{delinquency_date,jdbcType=TIMESTAMP},
+      delinquency_day = #{delinquency_day,jdbcType=INTEGER},
+      delinquency_balance = #{delinquency_balance,jdbcType=DECIMAL},
+      delinquency_principal = #{delinquency_principal,jdbcType=DECIMAL},
+      delinquency_interest = #{delinquency_interest,jdbcType=DECIMAL},
+      delinquency_service_fee = #{delinquency_service_fee,jdbcType=DECIMAL},
+      delinquency_penalty_fee = #{delinquency_penalty_fee,jdbcType=DECIMAL},
+      delinquency_misc_fee = #{delinquency_misc_fee,jdbcType=DECIMAL},
+      monthly_payment = #{monthly_payment,jdbcType=DECIMAL},
+      monthly_payment_min = #{monthly_payment_min,jdbcType=DECIMAL},
+      direct_debit_card_number = #{direct_debit_card_number,jdbcType=CHAR},
+      direct_debit_card_name = #{direct_debit_card_name,jdbcType=VARCHAR},
+      direct_debit_card_bank = #{direct_debit_card_bank,jdbcType=VARCHAR},
+      direct_debit_card_branch = #{direct_debit_card_branch,jdbcType=VARCHAR},
+      last_dd_status = #{last_dd_status,jdbcType=CHAR},
+      pre_termination_amount = #{pre_termination_amount,jdbcType=DECIMAL},
+      reschedule_flag = #{reschedule_flag,jdbcType=CHAR},
+      reschedule_date = #{reschedule_date,jdbcType=TIMESTAMP},
+      reschedule_amount = #{reschedule_amount,jdbcType=DECIMAL},
+      reschedule_account_id = #{reschedule_account_id,jdbcType=BIGINT},
+      waive_service_fee_flag = #{waive_service_fee_flag,jdbcType=CHAR},
+      waive_penalty_fee_flag = #{waive_penalty_fee_flag,jdbcType=CHAR},
+      waive_misc_fee_flag = #{waive_misc_fee_flag,jdbcType=CHAR},
+      gl_account_number = #{gl_account_number,jdbcType=BIGINT},
+      debit_amount = #{debit_amount,jdbcType=DECIMAL},
+      partition_indicator = #{partition_indicator,jdbcType=CHAR},
+      last_update = #{last_update,jdbcType=TIMESTAMP},
+      last_update_id = #{last_update_id,jdbcType=VARCHAR},
+      waive_service_fee_hj = #{waive_service_fee_hj,jdbcType=DECIMAL},
+      accum_service_fee_hj = #{accum_service_fee_hj,jdbcType=DECIMAL},
+      total_service_fee_hj = #{total_service_fee_hj,jdbcType=DECIMAL},
+      os_service_fee_hj = #{os_service_fee_hj,jdbcType=DECIMAL},
+      service_fee_hj = #{service_fee_hj,jdbcType=DECIMAL},
+      waive_penalty_fee_hj = #{waive_penalty_fee_hj,jdbcType=DECIMAL},
+      accum_penalty_fee_hj = #{accum_penalty_fee_hj,jdbcType=DECIMAL},
+      total_penalty_fee_hj = #{total_penalty_fee_hj,jdbcType=DECIMAL},
+      os_penalty_fee_hj = #{os_penalty_fee_hj,jdbcType=DECIMAL},
+      penalty_fee_hj = #{penalty_fee_hj,jdbcType=DECIMAL},
+      waive_misc_fee_hj = #{waive_misc_fee_hj,jdbcType=DECIMAL},
+      accum_misc_fee_hj = #{accum_misc_fee_hj,jdbcType=DECIMAL},
+      total_misc_fee_hj = #{total_misc_fee_hj,jdbcType=DECIMAL},
+      os_misc_fee_hj = #{os_misc_fee_hj,jdbcType=DECIMAL},
+      misc_fee_hj = #{misc_fee_hj,jdbcType=DECIMAL},
+      FirstDelayFlag = #{firstDelayFlag,jdbcType=VARCHAR},
+      loanAmt = #{loanAmt,jdbcType=DECIMAL},
+      loanReqFeeAmt = #{loanReqFeeAmt,jdbcType=DECIMAL},
+      BELONG_ORG = #{BELONG_ORG,jdbcType=VARCHAR},
+      yjf_contractNo = #{yjf_contractNo,jdbcType=VARCHAR},
+      preferentialFlag = #{preferentialFlag,jdbcType=VARCHAR},
+      insuranceFlag = #{insuranceFlag,jdbcType=VARCHAR},
+      merchantName = #{merchantName,jdbcType=VARCHAR},
+      merchantBankName = #{merchantBankName,jdbcType=VARCHAR},
+      merchantBank = #{merchantBank,jdbcType=VARCHAR},
+      merchantBankCardNbr = #{merchantBankCardNbr,jdbcType=VARCHAR},
+      isreducemechantfee = #{isreducemechantfee,jdbcType=VARCHAR},
+      isReductLodgingFee = #{isReductLodgingFee,jdbcType=VARCHAR},
+      merchantBankDesc = #{merchantBankDesc,jdbcType=VARCHAR},
+      otherContractNo = #{otherContractNo,jdbcType=VARCHAR},
+      leafOrg = #{leafOrg,jdbcType=VARCHAR},
+      CUSTOMER_BANK_PROVINCE = #{CUSTOMER_BANK_PROVINCE,jdbcType=VARCHAR},
+      CUSTOMER_BANK_CITY = #{CUSTOMER_BANK_CITY,jdbcType=VARCHAR},
+      CUSTOMER_BANK_COUNTY = #{CUSTOMER_BANK_COUNTY,jdbcType=VARCHAR},
+      delinquency_times = #{delinquency_times,jdbcType=INTEGER},
+      reject_flag_l = #{reject_flag_l,jdbcType=VARCHAR},
+      reject_revive_man = #{reject_revive_man,jdbcType=VARCHAR},
+      CUSTOMER_TYPE = #{CUSTOMER_TYPE,jdbcType=INTEGER},
+      insurance_id = #{insurance_id,jdbcType=INTEGER},
+      monetary_flag = #{monetary_flag,jdbcType=VARCHAR},
+      preferential_id = #{preferential_id,jdbcType=INTEGER},
+      yxt_deductNumber = #{yxt_deductNumber,jdbcType=INTEGER},
+      yxt_enableDeductFlag = #{yxt_enableDeductFlag,jdbcType=INTEGER},
+      repayFlag = #{repayFlag,jdbcType=INTEGER},
+      customer_bank_code = #{customer_bank_code,jdbcType=VARCHAR},
+      agent_name = #{agent_name,jdbcType=VARCHAR},
+      agent_id_card = #{agent_id_card,jdbcType=VARCHAR},
+      agent_mobile = #{agent_mobile,jdbcType=VARCHAR},
+      agent_house_name = #{agent_house_name,jdbcType=VARCHAR},
+      agent_bank_account = #{agent_bank_account,jdbcType=VARCHAR},
+      agent_bank = #{agent_bank,jdbcType=VARCHAR},
+      specialChannelCde = #{specialChannelCde,jdbcType=INTEGER},
+      addLoanAmt = #{addLoanAmt,jdbcType=DECIMAL},
+      cash_Re_Merchant = #{cash_Re_Merchant,jdbcType=VARCHAR},
+      cash_Re_Store = #{cash_Re_Store,jdbcType=VARCHAR},
+      statusZj = #{statusZj,jdbcType=INTEGER},
+      zjzf_bmd_batchno = #{zjzf_bmd_batchno,jdbcType=VARCHAR},
+      kab_Purchase_Flag = #{kab_Purchase_Flag,jdbcType=VARCHAR},
+      kab_Id = #{kab_Id,jdbcType=VARCHAR},
+      use_Kab = #{use_Kab,jdbcType=VARCHAR},
+      kab_Order = #{kab_Order,jdbcType=VARCHAR},
+      disaccountType = #{disaccountType,jdbcType=INTEGER},
+      disaccountPayType = #{disaccountPayType,jdbcType=INTEGER},
+      disaccountAmount = #{disaccountAmount,jdbcType=DECIMAL},
+      MERCHANT = #{MERCHANT,jdbcType=INTEGER},
+      STORE_CDE = #{STORE_CDE,jdbcType=VARCHAR},
+      SALE_PERSON = #{SALE_PERSON,jdbcType=VARCHAR},
+      kabfee = #{kabfee,jdbcType=DECIMAL},
+      disacount_fee_HJ = #{disacount_fee_HJ,jdbcType=DECIMAL},
+      disacount_fee_merchant_fund = #{disacount_fee_merchant_fund,jdbcType=DECIMAL},
+      disacount_fee_merchant_hj = #{disacount_fee_merchant_hj,jdbcType=DECIMAL},
+      disacount_pay_type_hj = #{disacount_pay_type_hj,jdbcType=INTEGER},
+      disacount_type_hj = #{disacount_type_hj,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="selectAccountOldleaforg"  resultType="com.huij.report.house.entity.LmAccountOldleaforg">
+    SELECT 
+	t1.id AS 'account_id',
+	t1.leafOrg ,
+	t1.organization,
+	t1.creation_date,
+	t1.product_id,
+	t2.org_name,
+	t2.org_manage_id,
+	t2.org_manage_name,
+	t2.parant_org_id,
+	t2.parant_org_name,
+	t2.company_id,
+	t2.company_name,
+	t2.is_used
+	FROM  lm_account t1
+	LEFT JOIN fe_org_relation t2 ON t1.leafOrg=t2.org_id
+  </select>
+  
+</mapper>
