@@ -19,19 +19,9 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication(scanBasePackages = "com.huij")
 @ServletComponentScan
 @MapperScan({ "com.huij.report.**.mapper,com.huij.report.**.mapper_ex" })
-public class ApplicationService extends SpringBootServletInitializer{
+public class ApplicationService {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApplicationService.class, args);
 	}
-	@Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-	return builder.sources(ApplicationService.class);
-    }
-//	@Bean  
-//    public EmbeddedServletContainerFactory servletContainer() {  
-//        JettyEmbeddedServletContainerFactory factory =  
-//                new JettyEmbeddedServletContainerFactory();  
-//        return factory;  
-//    }
 }

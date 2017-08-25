@@ -111,24 +111,4 @@ public class OldleaforgTask {
 		}
 		logger.info("OldleaforgTask任务结束");
 	}
-	public static void main(String[] args) {
-		List<Long> allIds = new ArrayList<Long>();
-		allIds.add(1L);
-		allIds.add(2L);
-		allIds.add(3L);
-		allIds.add(4L);
-		allIds.add(6L);
-		List<Long> allId1s = new ArrayList<Long>();
-		allId1s.add(1L);
-		allId1s.add(2L);
-		allId1s.add(3L);
-		allId1s.add(4L);
-		allId1s.add(5L);
-		for (int i = allIds.size() - 1; i >= 0; i--) {
-			if (allId1s.contains(allIds.get(i))) {
-				allIds.remove(i);
-			}
-		}
-		System.err.println(allIds.size());
-	}
 }
